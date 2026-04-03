@@ -51,7 +51,7 @@ section{padding:5rem 0}
 .section-header p{font-size:.95rem;opacity:.72;max-width:580px;margin:.5rem auto 0}
 
 /* HEADER */
-#header{position:fixed;top:0;left:0;width:100%;z-index:200;transition:background .35s,box-shadow .35s;background:transparent}
+#header{position:fixed;top:0;left:0;width:100%;z-index:200;transition:background .3s,box-shadow .3s;background:transparent}
 #header.scrolled{background:rgba(0,64,43,.96);box-shadow:0 1px 0 rgba(127,255,212,.12)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;max-width:1100px;margin:0 auto}
 .header-logo img{height:38px;width:auto;border-radius:3px}
@@ -114,28 +114,56 @@ section{padding:5rem 0}
 .dato-label{font-size:.78rem;opacity:.68}
 @media(max-width:900px){.testimonios-grid{grid-template-columns:1fr}.datos-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* SERVICIOS */
+/* ==========================================
+   SERVICIOS — Demo A — Grid de Categorías
+   Estilo Uncodixify: sin rounded corners,
+   overlay verde oscuro, expansión in-place
+   ========================================== */
 #solucion{background:var(--verde)}
 .servicios-intro{text-align:center;margin-bottom:2.5rem}
 .service-icon-top{width:52px;margin:0 auto 1.25rem;opacity:.55;filter:sepia(1) saturate(.5) brightness(1.3)}
-.servicios-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
-.tab-btn{font-family:var(--sans);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:.45rem .9rem;border:1px solid rgba(127,255,212,.3);background:transparent;color:var(--crema);cursor:pointer;border-radius:3px;transition:all .2s}
-.tab-btn:hover,.tab-btn.active{background:var(--aqua);color:var(--verde);border-color:var(--aqua)}
-.tab-panel{display:none}
-.tab-panel.active{display:block}
+
+/* Grid de categorías 4-3 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:0}
+.cat-card{position:relative;height:280px;cursor:pointer;overflow:hidden;border:1px solid rgba(127,255,212,.08)}
+.cat-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.cat-card:hover img{transform:scale(1.05)}
+.cat-overlay{position:absolute;inset:0;background:rgba(0,64,43,.55);transition:background .3s ease;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.25rem}
+.cat-card:hover .cat-overlay,.cat-card.open .cat-overlay{background:rgba(0,64,43,.35)}
+.cat-name{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--blanco);text-align:center;transition:transform .25s ease;line-height:1.25}
+.cat-card:hover .cat-name,.cat-card.open .cat-name{transform:translateY(-4px)}
+.cat-count{font-size:.68rem;color:var(--aqua);letter-spacing:.1em;text-transform:uppercase;margin-top:.3rem;opacity:.85}
+.cat-card.open{outline:2px solid var(--aqua);outline-offset:-2px;z-index:2}
+
+/* Fila inferior: 3 centradas */
+.cat-grid-bottom{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+
+/* Panel de expansión in-place */
+.cat-panel{display:none;background:var(--verde2);border:1px solid rgba(127,255,212,.12);border-top:2px solid var(--aqua);padding:2rem 1.5rem;animation:panelReveal .3s ease}
+.cat-panel.open{display:block}
+@keyframes panelReveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.cat-panel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.cat-panel-header h3{font-family:var(--serif);color:var(--aqua);font-size:1.15rem}
+.cat-panel-close{background:transparent;border:1px solid rgba(127,255,212,.3);color:var(--aqua);font-size:.8rem;padding:.35rem .75rem;cursor:pointer;letter-spacing:.06em}
+.cat-panel-close:hover{background:rgba(127,255,212,.1)}
+.cat-notice{font-size:.82rem;opacity:.6;margin-bottom:1.25rem;font-style:italic}
+
+/* Grid de servicios individuales — estilo Uncodixify */
 .servicios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.25rem}
-.servicio-card{background:rgba(255,255,255,.03);border:1px solid rgba(127,255,212,.1);border-radius:4px;padding:1.25rem;text-align:center;transition:border-color .2s}
-.servicio-card:hover{border-color:rgba(127,255,212,.32)}
+.servicio-card{background:rgba(255,255,255,.03);border:1px solid rgba(127,255,212,.2);border-radius:0;padding:1.25rem;text-align:center;transition:border-color .2s,transform .2s}
+.servicio-card:hover{border-color:rgba(127,255,212,.5);transform:translateY(-4px)}
 .card-img{width:96px;height:96px;border-radius:50%;object-fit:cover;margin:0 auto .85rem;border:1px solid rgba(127,255,212,.18)}
 .servicio-card h3{font-size:.95rem;color:var(--blanco);margin-bottom:.3rem}
 .precio{font-size:1.1rem;font-weight:700;color:var(--aqua);margin-bottom:.45rem}
 .desc{font-size:.8rem;opacity:.7;line-height:1.5;margin-bottom:.65rem}
 .seguimiento-badge{font-size:.68rem;color:var(--beige);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.65rem;display:block}
 .card-star{color:var(--beige);font-size:.72rem;margin-bottom:.2rem}
-.card-btn{display:block;font-size:.8rem;font-weight:600;padding:.5rem .85rem;background:transparent;border:1px solid rgba(127,255,212,.35);color:var(--aqua);border-radius:3px;text-align:center;transition:all .2s;cursor:pointer;margin-top:.35rem}
+.card-btn{display:block;font-size:.8rem;font-weight:600;padding:.5rem .85rem;background:transparent;border:1px solid rgba(127,255,212,.35);color:var(--aqua);border-radius:0;text-align:center;transition:all .2s;cursor:pointer;margin-top:.35rem}
 .card-btn:hover{background:var(--aqua);color:var(--verde)}
 .servicios-footer{text-align:center;margin-top:2.5rem}
 .servicios-footer p{font-size:.82rem;opacity:.55;margin-top:.65rem}
+@media(max-width:900px){.cat-grid{grid-template-columns:repeat(2,1fr)}.cat-grid-bottom{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cat-grid{grid-template-columns:1fr}.cat-grid-bottom{grid-template-columns:1fr}.cat-card{height:200px}}
 
 /* PARA QUIÉN */
 #para-quien{background:var(--verde2)}
@@ -210,6 +238,41 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 /* WA FLOAT */
 .wa-float{position:fixed;bottom:24px;right:24px;z-index:300;background:#25D366;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3);transition:transform .2s}
 .wa-float:hover{transform:scale(1.08)}
+
+/* ==========================================
+   ANIMATION VARIANTS — Demo A
+   ========================================== */
+
+/* VARIANT A: Fade + Slide up (suave, profesional) */
+/*
+[data-animate]{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease, transform 0.6s ease}
+[data-animate].animated{opacity:1;transform:translateY(0)}
+*/
+
+/* VARIANT B: Parallax scroll (más dinámico — IntersectionObserver) */
+/*
+[data-animate]{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease, transform 0.8s ease}
+[data-animate].animated{opacity:1;transform:translateY(0)}
+-- Activar con data-parallax y actualizar JS con getBoundingClientRect --
+*/
+
+/* VARIANT C: Stagger reveal — tarjetas aparecen con delay escalonado 0.1s por card (ACTIVA) */
+[data-animate]{opacity:0;transform:translateY(28px);transition:opacity 0.55s ease, transform 0.55s ease}
+[data-animate].animated{opacity:1;transform:translateY(0)}
+.stagger-children > *{opacity:0;transform:translateY(20px);transition:opacity 0.45s ease, transform 0.45s ease}
+.stagger-children.animated > *{opacity:1;transform:translateY(0)}
+.stagger-children.animated > *:nth-child(1){transition-delay:.05s}
+.stagger-children.animated > *:nth-child(2){transition-delay:.1s}
+.stagger-children.animated > *:nth-child(3){transition-delay:.15s}
+.stagger-children.animated > *:nth-child(4){transition-delay:.2s}
+.stagger-children.animated > *:nth-child(5){transition-delay:.25s}
+.stagger-children.animated > *:nth-child(6){transition-delay:.3s}
+.stagger-children.animated > *:nth-child(7){transition-delay:.35s}
+.stagger-children.animated > *:nth-child(8){transition-delay:.4s}
+
+/* WA pulse */
+@keyframes waPulse{0%,100%{box-shadow:0 2px 10px rgba(0,0,0,.3),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 2px 10px rgba(0,0,0,.3),0 0 0 12px rgba(37,211,102,0)}}
+.wa-float{animation:waPulse 2.5s ease infinite}
 </style>
 </head>
 <body>
@@ -263,13 +326,13 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </section>
 
 <!-- PAIN POINTS -->
-<section id="pain">
+<section id="pain" data-animate>
   <div class="container">
     <div class="section-header">
       <span class="label">¿Te suena familiar?</span>
       <h2>Lo que sientes tiene nombre</h2>
     </div>
-    <div class="pain-grid">
+    <div class="pain-grid stagger-children">
       <div class="pain-item"><div class="pain-num">01</div><h3>¿Sientes que cargás con algo que no es tuyo?</h3><p>Esa sensación de pesadez, de que algo no fluye, de que te cuesta avanzar aunque hagas todo bien. No es tu cabeza. Es energía que necesita moverse.</p></div>
       <div class="pain-item"><div class="pain-num">02</div><h3>¿Probaste cosas y volviste al mismo lugar?</h3><p>Meditaciones, talleres, libros — y a los días estás igual. Porque una sesión genérica no trabaja lo que es tuyo.</p></div>
       <div class="pain-item"><div class="pain-num">03</div><h3>¿Querés un espacio donde no tengas que explicar todo desde cero?</h3><p>Con alguien que te escuche de verdad, adapte el trabajo a lo que necesitás hoy, y esté disponible después también.</p></div>
@@ -281,7 +344,7 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 <div class="leaf-divider"><img src="../assets/symbol-leaf-divider.svg" alt="" aria-hidden="true"></div>
 
 <!-- MECANISMO -->
-<section id="mecanismo">
+<section id="mecanismo" data-animate>
   <div class="container">
     <div class="mec-inner">
       <div class="mec-img">
@@ -304,13 +367,13 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </section>
 
 <!-- CREDIBILIDAD -->
-<section id="prueba">
+<section id="prueba" data-animate>
   <div class="container">
     <div class="section-header">
       <span class="label">Lo que dicen quienes ya fueron</span>
       <h2>Personas reales, procesos reales</h2>
     </div>
-    <div class="testimonios-grid">
+    <div class="testimonios-grid stagger-children">
       <div class="testimonio-card">
         <p class="testimonio-texto">"Llegué con mucha carga y sin saber bien qué esperar. Chely adaptó la sesión a lo que yo necesitaba ese día — no siguió un protocolo, eso se notó. Lo que más me ayudó fue el seguimiento después: poder escribirle cuando se me volvía a aparecer algo sin sentirme una molestia. Fue un antes y un después."</p>
         <span class="testimonio-nombre">Valentina, 32 años · Santiago</span>
@@ -324,7 +387,7 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
         <span class="testimonio-nombre">Fernanda, 38 años · La Cruz</span>
       </div>
     </div>
-    <div class="datos-grid">
+    <div class="datos-grid stagger-children">
       <div class="dato-item"><span class="dato-num">4</span><span class="dato-label">años de práctica continua</span></div>
       <div class="dato-item"><span class="dato-num">+20</span><span class="dato-label">certificaciones holísticas y Reiki</span></div>
       <div class="dato-item"><span class="dato-num">+500</span><span class="dato-label">personas acompañadas</span></div>
@@ -333,73 +396,78 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
   </div>
 </section>
 
-<!-- SERVICIOS -->
-<section id="solucion">
+<!-- SERVICIOS — Grid de Categorías con expansión in-place -->
+<section id="solucion" data-animate>
   <div class="container">
     <div class="servicios-intro">
       <img src="../assets/symbol-service-icon.svg" alt="" class="service-icon-top" aria-hidden="true">
       <span class="label">Lo que ofrezco</span>
       <h2>Todos los servicios incluyen seguimiento por WhatsApp</h2>
-      <p>Elegí por lo que sentís, no por lo que sabés de holístico. ¿No sabés cuál elegir? Te ayudo.</p>
-    </div>
-    <div class="servicios-tabs">
-      <button class="tab-btn active" data-tab="numerologia">Numerología</button>
-      <button class="tab-btn" data-tab="limpiezas">Limpiezas</button>
-      <button class="tab-btn" data-tab="reiki">Reiki</button>
-      <button class="tab-btn" data-tab="especiales">Únicos</button>
-      <button class="tab-btn" data-tab="circulos">Círculos</button>
-      <button class="tab-btn" data-tab="packs">Packs</button>
+      <p>Elegí una categoría para ver los servicios y precios. ¿No sabés cuál elegir? Te ayudo.</p>
     </div>
 
-    <div class="tab-panel active" id="tab-numerologia">
-      <div class="servicios-grid">
-        <div class="servicio-card"><img src="../assets/Num-Per.png" alt="Numerología Personal" class="card-img" loading="lazy"><h3>Numerología Personal</h3><div class="precio">$15.000 CLP</div><p class="desc">Número del alma, karma, dones y misión de vida. Informe escrito + audio por WhatsApp.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20Personal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Num-Par.png" alt="Numerología de Pareja" class="card-img" loading="lazy"><h3>Numerología Pareja</h3><div class="precio">$15.000 CLP</div><p class="desc">Sinastría numerológica: energía de la relación, qué vienen a aprender juntos y cómo potenciarse.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20de%20Pareja.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Num-voc.png" alt="Numerología Vocacional" class="card-img" loading="lazy"><h3>Numerología Vocacional</h3><div class="precio">$15.000 CLP</div><p class="desc">Actividades alineadas con tu energía, bloqueos del merecimiento, cómo manifestar abundancia desde tu frecuencia real.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20Vocacional.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Num-Hog.png" alt="Numerología Hogar" class="card-img" loading="lazy"><h3>Numerología Hogar y Celular</h3><div class="precio">$10.000 CLP</div><p class="desc">Vibración de tu vivienda y celular, cómo te afectan y cómo armonizarlos. Ideal para empezar.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20del%20Hogar.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/num-full.png" alt="Carta Numerológica Completa" class="card-img" loading="lazy"><div class="card-star">⭐ Más completo</div><h3>Carta Numerológica Completa</h3><div class="precio">$35.000 CLP</div><p class="desc">Visión pitagórica + tántrica. Vibración, desafíos, dones, misión de vida, ciclo personal. Videollamada en vivo 60-90 min.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Carta%20Numerol%C3%B3gica%20Completa.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
+    <!-- Fila superior: 4 categorías -->
+    <div class="cat-grid stagger-children" id="cat-grid-top">
+      <div class="cat-card" data-cat="numerologia" role="button" tabindex="0" aria-expanded="false">
+        <img src="../assets/Num-Per.png" alt="Numerología" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Numerología</span>
+          <span class="cat-count">5 servicios</span>
+        </div>
+      </div>
+      <div class="cat-card" data-cat="reiki" role="button" tabindex="0" aria-expanded="false">
+        <img src="../assets/rei-pre.png" alt="Reiki" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Reiki</span>
+          <span class="cat-count">3 servicios</span>
+        </div>
+      </div>
+      <div class="cat-card" data-cat="limpiezas" role="button" tabindex="0" aria-expanded="false">
+        <img src="../assets/lim-per.jpg" alt="Limpieza Energética" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Limpieza Energética</span>
+          <span class="cat-count">2 servicios</span>
+        </div>
+      </div>
+      <div class="cat-card" data-cat="experiencias" role="button" tabindex="0" aria-expanded="false">
+        <img src="../assets/exp-per.jpg" alt="Experiencias" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Experiencias</span>
+          <span class="cat-count">2 servicios</span>
+        </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="tab-limpiezas">
-      <div class="servicios-grid">
-        <div class="servicio-card"><img src="../assets/lim-per.jpg" alt="Limpieza Energética Personal" class="card-img" loading="lazy"><h3>Limpieza Personal</h3><div class="precio">$26.000 CLP</div><p class="desc">Cruz de Ankh (𓋹): elimina +20 tipos de contaminaciones. Informe escrito + audio + lectura del oráculo egipcio.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Limpieza%20Personal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Lim-Cas.png" alt="Limpieza de Casa" class="card-img" loading="lazy"><h3>Limpieza de Casa</h3><div class="precio">$26.000 CLP</div><p class="desc">Tu hogar absorbe la energía de quienes lo habitan. Cruz de Ankh para el campo de tu casa. Informe + recomendaciones + oráculo.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Limpieza%20de%20Casa.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
+    <!-- Panel expansión fila superior -->
+    <div class="cat-panel" id="panel-top"></div>
+
+    <!-- Fila inferior: 3 categorías -->
+    <div class="cat-grid-bottom stagger-children" id="cat-grid-bottom">
+      <div class="cat-card" data-cat="circulos" role="button" tabindex="0" aria-expanded="false">
+        <img src="../assets/Circ-Amigas.png" alt="Círculos y Ceremonias" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Círculos y Ceremonias</span>
+          <span class="cat-count">3 servicios</span>
+        </div>
+      </div>
+      <div class="cat-card" data-cat="packs" role="button" tabindex="0" aria-expanded="false">
+        <img src="../assets/Pack-2.jpg" alt="Packs" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Packs</span>
+          <span class="cat-count">2 servicios</span>
+        </div>
+      </div>
+      <div class="cat-card" data-cat="akashicos" role="button" tabindex="0" aria-expanded="false">
+        <img src="../assets/Akashico.png" alt="Akáshicos y Útero" loading="lazy">
+        <div class="cat-overlay">
+          <span class="cat-name">Akáshicos y Útero</span>
+          <span class="cat-count">2 servicios</span>
+        </div>
       </div>
     </div>
 
-    <div class="tab-panel" id="tab-reiki">
-      <div class="servicios-grid">
-        <div class="servicio-card"><img src="../assets/rei-pre.png" alt="Reiki Presencial con Sonidos" class="card-img" loading="lazy"><h3>Reiki Presencial + Sonidos</h3><div class="precio">$22.000 CLP</div><p class="desc">Reiki (OMS) + tambor chamánico + cuenco tibetano + pukudrum. 1 hora. Apto niños y adultos.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Reiki%20Presencial.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/rei-full.png" alt="Reiki Momento de Paz" class="card-img" loading="lazy"><div class="card-star">⭐ Experiencia completa</div><h3>Reiki Momento de Paz</h3><div class="precio">$29.000 CLP</div><p class="desc">Sahumación + sonoterapia + Reiki + gemoterapia + lectura del oráculo. Espacio seguro de conversación. 1.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Reiki%20Momento%20de%20Paz.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Rei-dist.png" alt="Reiki a Distancia" class="card-img" loading="lazy"><h3>Reiki a Distancia</h3><div class="precio">$18.000 CLP</div><p class="desc">Aura y chakras trabajados desde tu casa. Sonoterapia + gemoterapia. 45 min. Todo Chile. Apto niños.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Reiki%20a%20Distancia.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="tab-especiales">
-      <div class="servicios-grid">
-        <div class="servicio-card"><img src="../assets/Akashico.png" alt="Registros Akáshicos" class="card-img" loading="lazy"><h3>Registros Akáshicos</h3><div class="precio">$26.000 CLP</div><p class="desc">Comprensión profunda de quién sos, tus patrones y misión de alma. No es adivinación. Videollamada 60-90 min.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesan%20los%20Registros%20Ak%C3%A1shicos.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/San-Ute.png" alt="Sanación de Útero" class="card-img" loading="lazy"><h3>Sanación de Útero</h3><div class="precio">$29.000 CLP</div><p class="desc">Libera memorias del linaje femenino (hasta 7 generaciones). Toma de cacao + meditación + respiración. Presencial o videollamada.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Sanaci%C3%B3n%20de%20%C3%9Atero.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="tab-circulos">
-      <p style="font-size:.85rem;opacity:.65;margin-bottom:1.5rem">Me traslado a domicilio. Fuera de Quillota, Calera y La Cruz: cargo adicional por logística.</p>
-      <div class="servicios-grid">
-        <div class="servicio-card"><img src="../assets/exp-per.jpg" alt="Experiencia Personal" class="card-img" loading="lazy"><h3>Experiencia Personal</h3><div class="precio">$29.000 CLP</div><p class="desc">Un espacio creado solo para vos. Niña interior, sanación, amor propio, cacao, oráculo. 1.5-2 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Experiencia%20Personal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Exp-grup.png" alt="Experiencia Grupal" class="card-img" loading="lazy"><h3>Experiencia Grupal</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Momento en tribu para desconectarse y conectar de verdad. Exclusivo para tu grupo. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20una%20Experiencia%20Grupal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Circ-Amigas.png" alt="Círculo de Amigas" class="card-img" loading="lazy"><h3>Círculo de Amigas</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Sahumos + meditación + sonoterapia + numerología de misión de vida + rito de quema + oráculo. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20un%20C%C3%ADrculo%20de%20Amigas.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Circ-Familiar.png" alt="Círculo Familiar" class="card-img" loading="lazy"><h3>Círculo Familiar</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Conexión y honrar ancestros juntos. Niños hasta 13 años sin costo. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20un%20C%C3%ADrculo%20Familiar.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Cer-Cump.png" alt="Ceremonia de Cumpleaños" class="card-img" loading="lazy"><div class="card-star">⭐ $11.000/persona si son +10</div><h3>Ceremonia de Cumpleaños</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Un portal especial donde quienes amas le dicen a la festejada lo importante que es su existencia. Altar, mantas, cojines, sonoterapia. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20una%20Ceremonia%20de%20Cumplea%C3%B1os.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="tab-packs">
-      <div class="servicios-grid">
-        <div class="servicio-card"><img src="../assets/pack-1.png" alt="Pack Abrecaminos" class="card-img" loading="lazy"><h3>Pack Abrecaminos + Limpieza Personal</h3><div class="precio">$44.000 CLP</div><p class="desc">Limpieza completa + apertura de caminos específica + oráculo egipcio + informe + audio. Remoto. 1-1.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Pack%20Abrecaminos.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-        <div class="servicio-card"><img src="../assets/Pack-2.jpg" alt="Pack Limpieza Personal y Hogar" class="card-img" loading="lazy"><div class="card-star">Ahorrás $5.000 CLP</div><h3>Pack Limpieza Personal + Hogar</h3><div class="precio">$47.000 CLP <span style="font-size:.75rem;opacity:.55;text-decoration:line-through">$52.000</span></div><p class="desc">Limpieza Personal + Limpieza de Casa + oráculo + informe + audio. Todo en una sesión. Remoto. 2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Pack%20Limpieza%20Personal%20y%20Hogar.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a></div>
-      </div>
-    </div>
+    <!-- Panel expansión fila inferior -->
+    <div class="cat-panel" id="panel-bottom"></div>
 
     <div class="servicios-footer">
       <a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20no%20s%C3%A9%20qu%C3%A9%20servicio%20elegir.%20%C2%BFMe%20ayud%C3%A1s%3F" class="btn btn-outline" target="_blank">¿No sé cuál elegir? Escribime</a>
@@ -409,13 +477,13 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </section>
 
 <!-- PARA QUIÉN ES -->
-<section id="para-quien">
+<section id="para-quien" data-animate>
   <div class="container">
     <div class="section-header">
       <span class="label">¿Esto es para mí?</span>
       <h2>Para quién es Alelyche Ancestral</h2>
     </div>
-    <div class="perfiles-grid">
+    <div class="perfiles-grid stagger-children">
       <div class="perfil-card"><h3>"Siento que cargo con algo que no es mío"</h3><p>Mujeres 25-45 que ya probaron talleres y terapias. Quieren sanar heridas o patrones que se repiten. Buscan algo que trabaje lo que es suyo.</p><div class="perfil-servicios">Ideal: Limpieza Personal · Experiencia Personal · Sanación de Útero</div></div>
       <div class="perfil-card"><h3>"Siento mala vibra, algo está bloqueado"</h3><p>Mujeres 20-35 en racha mala. No necesariamente tienen perfil espiritual. Quieren un resultado concreto y perceptible, no filosofía.</p><div class="perfil-servicios">Ideal: Limpieza Personal · Pack Abrecaminos + Limpieza</div></div>
       <div class="perfil-card"><h3>"Quiero algo especial para mi grupo"</h3><p>Organizadoras de cumpleaños o círculos. Buscan algo significativo y bien contenido. Necesitan a alguien que maneje la dinámica de grupo con seguridad.</p><div class="perfil-servicios">Ideal: Círculos Alelyche · Ceremonias · Experiencia Grupal</div></div>
@@ -425,14 +493,14 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </section>
 
 <!-- VALUE STACK -->
-<section id="value-stack">
+<section id="value-stack" data-animate>
   <div class="container">
     <div class="section-header">
       <span class="label">Lo que recibís por ese precio</span>
       <h2>El valor real de una sesión</h2>
       <p>Comparado con lo que cuestan por separado los mismos elementos en el mercado.</p>
     </div>
-    <div class="value-inner">
+    <div class="value-inner stagger-children">
       <div>
         <p class="value-title">Reiki Momento de Paz — $29.000 CLP</p>
         <table class="value-table"><tr><th>Incluye</th><th>Valor mercado</th></tr><tr><td>Sesión de Reiki 1.5h (profesional)</td><td>$40.000–$80.000</td></tr><tr><td>Sonoterapia: cuencos + tambor chamánico</td><td>$12.000</td></tr><tr><td>Gemoterapia con cuarzos (chakras)</td><td>$8.000</td></tr><tr><td>Sahumación ritual sagrada</td><td>$5.000</td></tr><tr><td>Lectura del oráculo</td><td>$10.000</td></tr><tr><td>Seguimiento WhatsApp 1-2 semanas</td><td>$15.000</td></tr><tr class="total"><td>Valor total referencial</td><td>$90.000–$130.000</td></tr><tr class="precio-final"><td>Precio Alelyche Ancestral</td><td>$29.000</td></tr></table>
@@ -447,7 +515,7 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </section>
 
 <!-- URGENCIA -->
-<section id="urgencia">
+<section id="urgencia" data-animate>
   <div class="container">
     <span class="label" style="text-align:center">No lo postergues</span>
     <h2>La energía no espera</h2>
@@ -458,7 +526,7 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </section>
 
 <!-- GARANTÍA -->
-<section id="garantia">
+<section id="garantia" data-animate>
   <div class="container">
     <div class="garantia-inner">
       <div style="text-align:center">
@@ -482,7 +550,7 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" data-animate>
   <div class="container">
     <div class="section-header">
       <span class="label">Preguntas frecuentes</span>
@@ -532,22 +600,11 @@ footer p{font-size:.75rem;opacity:.5;margin-bottom:.3rem}
 </a>
 
 <script>
-// Header scroll
+// ---- Header scroll ----
 const hdr=document.getElementById('header');
 window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>80),{passive:true});
 
-// Tabs
-document.querySelectorAll('.tab-btn').forEach(b=>{
-  b.addEventListener('click',()=>{
-    const t=b.dataset.tab;
-    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));
-    b.classList.add('active');
-    document.getElementById('tab-'+t).classList.add('active');
-  });
-});
-
-// FAQ
+// ---- FAQ ----
 document.querySelectorAll('.faq-question').forEach(b=>{
   b.addEventListener('click',()=>{
     const item=b.parentElement;
@@ -555,6 +612,159 @@ document.querySelectorAll('.faq-question').forEach(b=>{
     document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
     if(!open)item.classList.add('open');
   });
+});
+
+// ---- Categorías de servicios — datos ----
+const CATS={
+  numerologia:{
+    title:'Numerología',
+    notice:null,
+    panelTarget:'panel-top',
+    services:[
+      {img:'Num-Per.png',name:'Numerología Personal',price:'$15.000 CLP',desc:'Número del alma, karma, dones y misión de vida. Informe escrito + audio por WhatsApp.',wa:'Numerolog%C3%ADa%20Personal',badge:true},
+      {img:'Num-Par.png',name:'Numerología Pareja',price:'$15.000 CLP',desc:'Sinastría numerológica: energía de la relación, qué vienen a aprender juntos y cómo potenciarse.',wa:'Numerolog%C3%ADa%20de%20Pareja',badge:true},
+      {img:'Num-voc.png',name:'Numerología Vocacional',price:'$15.000 CLP',desc:'Actividades alineadas con tu energía, bloqueos del merecimiento, cómo manifestar abundancia desde tu frecuencia real.',wa:'Numerolog%C3%ADa%20Vocacional',badge:true},
+      {img:'Num-Hog.png',name:'Numerología Hogar y Celular',price:'$10.000 CLP',desc:'Vibración de tu vivienda y celular, cómo te afectan y cómo armonizarlos. Ideal para empezar.',wa:'Numerolog%C3%ADa%20del%20Hogar',badge:true},
+      {img:'num-full.png',name:'Carta Numerológica Completa',price:'$35.000 CLP',desc:'Visión pitagórica + tántrica. Vibración, desafíos, dones, misión de vida, ciclo personal. Videollamada en vivo 60-90 min.',wa:'Carta%20Numerol%C3%B3gica%20Completa',badge:true,star:'⭐ Más completo'}
+    ]
+  },
+  reiki:{
+    title:'Reiki',
+    notice:null,
+    panelTarget:'panel-top',
+    services:[
+      {img:'rei-pre.png',name:'Reiki Presencial + Sonidos',price:'$22.000 CLP',desc:'Reiki (OMS) + tambor chamánico + cuenco tibetano + pukudrum. 1 hora. Apto niños y adultos.',wa:'Reiki%20Presencial',badge:true},
+      {img:'rei-full.png',name:'Reiki Momento de Paz',price:'$29.000 CLP',desc:'Sahumación + sonoterapia + Reiki + gemoterapia + lectura del oráculo. Espacio seguro de conversación. 1.5 horas.',wa:'Reiki%20Momento%20de%20Paz',badge:true,star:'⭐ Experiencia completa'},
+      {img:'Rei-dist.png',name:'Reiki a Distancia',price:'$18.000 CLP',desc:'Aura y chakras trabajados desde tu casa. Sonoterapia + gemoterapia. 45 min. Todo Chile. Apto niños.',wa:'Reiki%20a%20Distancia',badge:true}
+    ]
+  },
+  limpiezas:{
+    title:'Limpieza Energética',
+    notice:null,
+    panelTarget:'panel-top',
+    services:[
+      {img:'lim-per.jpg',name:'Limpieza Personal',price:'$26.000 CLP',desc:'Cruz de Ankh (𓋹): elimina +20 tipos de contaminaciones. Informe escrito + audio + lectura del oráculo egipcio.',wa:'Limpieza%20Personal',badge:true},
+      {img:'Lim-Cas.png',name:'Limpieza de Casa',price:'$26.000 CLP',desc:'Tu hogar absorbe la energía de quienes lo habitan. Cruz de Ankh para el campo de tu casa. Informe + recomendaciones + oráculo.',wa:'Limpieza%20de%20Casa',badge:true}
+    ]
+  },
+  experiencias:{
+    title:'Experiencias',
+    notice:null,
+    panelTarget:'panel-top',
+    services:[
+      {img:'exp-per.jpg',name:'Experiencia Personal',price:'$29.000 CLP',desc:'Un espacio creado exclusivamente para vos. Personalizado 100%. Meditaciones, limpieza, oráculo. 1.5-2 horas.',wa:'Experiencia%20Personal',badge:true},
+      {img:'Exp-grup.png',name:'Experiencia Grupal',price:'$17.000/persona · mín. 6',desc:'Momento en tribu para desconectarse del ruido diario y conectar de verdad. Exclusivo para tu grupo. 2-2.5 horas.',wa:'Experiencia%20Grupal',badge:true}
+    ]
+  },
+  circulos:{
+    title:'Círculos y Ceremonias',
+    notice:'Me traslado a domicilio. Fuera de Quillota, Calera y La Cruz: cargo adicional por logística.',
+    panelTarget:'panel-bottom',
+    services:[
+      {img:'Circ-Amigas.png',name:'Círculo de Amigas',price:'$17.000/persona · mín. 6',desc:'Sahumos + meditación + sonoterapia + numerología de misión de vida + rito de quema + oráculo. 2-2.5 horas.',wa:'C%C3%ADrculo%20de%20Amigas',badge:true},
+      {img:'Circ-Familiar.png',name:'Círculo Familiar',price:'$17.000/persona · mín. 6',desc:'Conexión y honrar ancestros juntos. Niños hasta 13 años sin costo. 2-2.5 horas.',wa:'C%C3%ADrculo%20Familiar',badge:true},
+      {img:'Cer-Cump.png',name:'Ceremonia de Cumpleaños',price:'$17.000/persona · mín. 6',desc:'Un portal especial donde quienes amas le dicen a la festejada lo importante que es su existencia. Altar, mantas, sonoterapia. 2-2.5 horas.',wa:'Ceremonia%20de%20Cumplea%C3%B1os',badge:true,star:'⭐ $11.000/persona si son +10'}
+    ]
+  },
+  packs:{
+    title:'Packs Alelyche',
+    notice:null,
+    panelTarget:'panel-bottom',
+    services:[
+      {img:'pack-1.png',name:'Pack Abrecaminos + Limpieza Personal',price:'$44.000 CLP',desc:'Limpieza completa + apertura de caminos específica + oráculo egipcio + informe + audio. Remoto. 1-1.5 horas.',wa:'Pack%20Abrecaminos',badge:true},
+      {img:'Pack-2.jpg',name:'Pack Limpieza Personal + Hogar',price:'$47.000 CLP',desc:'Limpieza Personal + Limpieza de Casa + oráculo + informe + audio. Todo en una sesión. Remoto. 2.5 horas.',wa:'Pack%20Limpieza%20Personal%20y%20Hogar',badge:true,star:'Ahorrás $5.000 CLP',priceExtra:'<span style="font-size:.75rem;opacity:.55;text-decoration:line-through;margin-left:.35rem">$52.000</span>'}
+    ]
+  },
+  akashicos:{
+    title:'Akáshicos y Útero',
+    notice:null,
+    panelTarget:'panel-bottom',
+    services:[
+      {img:'Akashico.png',name:'Registros Akáshicos',price:'$26.000 CLP',desc:'Comprensión profunda de quién sos, tus patrones y misión de alma. No es adivinación. Videollamada 60-90 min.',wa:'Registros%20Ak%C3%A1shicos',badge:true},
+      {img:'San-Ute.png',name:'Sanación de Útero',price:'$29.000 CLP',desc:'Libera memorias del linaje femenino (hasta 7 generaciones). Toma de cacao + meditación + respiración consciente. Presencial o videollamada.',wa:'Sanaci%C3%B3n%20de%20%C3%9Atero',badge:true}
+    ]
+  }
+};
+
+function buildServiceCards(services){
+  return services.map(s=>`
+    <div class="servicio-card">
+      <img src="../assets/${s.img}" alt="${s.name}" class="card-img" loading="lazy">
+      ${s.star?`<div class="card-star">${s.star}</div>`:''}
+      <h3>${s.name}</h3>
+      <div class="precio">${s.price}${s.priceExtra||''}</div>
+      <p class="desc">${s.desc}</p>
+      ${s.badge?'<span class="seguimiento-badge">✦ Seguimiento incluido</span>':''}
+      <a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20${s.wa}.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar por WhatsApp</a>
+    </div>
+  `).join('');
+}
+
+function openPanel(catKey){
+  const cat=CATS[catKey];
+  const panelEl=document.getElementById(cat.panelTarget);
+  const isAlreadyOpen=panelEl.classList.contains('open')&&panelEl.dataset.cat===catKey;
+
+  // Cerrar todos los cards y paneles
+  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('open'));
+  document.querySelectorAll('.cat-panel').forEach(p=>{p.classList.remove('open');p.dataset.cat='';});
+
+  if(isAlreadyOpen) return; // toggle off
+
+  // Abrir
+  const clickedCard=document.querySelector(`.cat-card[data-cat="${catKey}"]`);
+  clickedCard.classList.add('open');
+  panelEl.dataset.cat=catKey;
+  panelEl.innerHTML=`
+    <div class="cat-panel-header">
+      <h3>${cat.title}</h3>
+      <button class="cat-panel-close" onclick="closePanel('${cat.panelTarget}')">Cerrar ✕</button>
+    </div>
+    ${cat.notice?`<p class="cat-notice">${cat.notice}</p>`:''}
+    <div class="servicios-grid stagger-children">${buildServiceCards(cat.services)}</div>
+  `;
+  panelEl.classList.add('open');
+  // Trigger stagger on newly inserted cards
+  requestAnimationFrame(()=>{
+    const grid=panelEl.querySelector('.stagger-children');
+    if(grid) setTimeout(()=>grid.classList.add('animated'),30);
+  });
+  panelEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function closePanel(panelId){
+  const panelEl=document.getElementById(panelId);
+  const catKey=panelEl.dataset.cat;
+  if(catKey){
+    const card=document.querySelector(`.cat-card[data-cat="${catKey}"]`);
+    if(card) card.classList.remove('open');
+  }
+  panelEl.classList.remove('open');
+  panelEl.dataset.cat='';
+}
+
+// Attach click handlers to category cards
+document.querySelectorAll('.cat-card').forEach(card=>{
+  card.addEventListener('click',()=>openPanel(card.dataset.cat));
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')openPanel(card.dataset.cat)});
+});
+
+// ---- Scroll reveal — Variant C (stagger) ----
+const revealObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('animated');
+      // Also trigger stagger on direct stagger-children inside
+      entry.target.querySelectorAll('.stagger-children').forEach(sc=>sc.classList.add('animated'));
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll('[data-animate]').forEach(el=>revealObserver.observe(el));
+// Also observe stagger containers that are not inside data-animate parents
+document.querySelectorAll('.stagger-children').forEach(el=>{
+  if(!el.closest('[data-animate]')) revealObserver.observe(el);
 });
 </script>
 </body>
