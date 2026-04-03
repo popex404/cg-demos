@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Símbolo: Figura humana con energía radiante / ícono espiritual
+  Fuente: Master Spiritual Healing (MSH) — extraído 2026-04-02
+  Uso en landing: ícono decorativo antes de sección de Servicios y sección Mecanismo
+  Recolorear para Alelyche Ancestral:
+    - Versión sobre fondo oscuro: fill="#7FFFD4" (Aquamarine) o fill="#C3B091" (Khaki Beige)
+    - Versión sobre fondo claro: fill="#00402b" (Verde oscuro)
+  Dimensiones originales: 338.7 × 400 (vertical, ideal para ícono de sección)
+  Nota: La figura muestra una persona con brazos extendidos en posición de meditación/sanación,
+  con una especie de halo/mandala a su alrededor. Perfecta para representar terapia holística.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#f2e9e2" height="400" preserveAspectRatio="xMidYMid meet" version="1" viewBox="-0.0 0.0 338.7 400.0" width="338.7" zoomAndPan="magnify">
+  <g id="change1_1">
+    <path d="M169.34,127.84C169.34,127.84,169.34,127.84,169.34,127.84C169.34,127.84,169.34,127.84,169.34,127.84L169.34,127.84z M273.58,358.13c2.4,4.12,3.79,8.9,3.79,13.97c0,7.66-3.14,14.63-8.21,19.7c-5.04,5.07-12.02,8.21-19.7,8.21H89.2 c-7.68,0-14.66-3.14-19.71-8.19c-5.05-5.05-8.19-12.03-8.19-19.71c0-5.07,1.38-9.85,3.79-13.97c2.44-4.19,5.96-7.7,10.16-10.15 c12.11-8.17,21.38-15.47,28.32-22.26l0,0c0.99-0.97,1.93-1.93,2.83-2.87l-5.69,1.91l-0.9,0.23c-3.83,0.7-7.43,0.52-10.67-0.35 c-4.21-1.14-7.81-3.42-10.54-6.42c-2.72-2.99-4.59-6.73-5.34-10.8c-0.21-1.12-0.32-2.26-0.36-3.42c-2.87-1.96-5.68-4-8.41-6.14 c-0.47-0.38-0.76-0.68-1.14-1.14c-4.77-6.51,3.48-13.79,9.18-9.23c1.12,0.87,2.26,1.73,3.4,2.57c5.81-18.86,10.81-33.54,15.14-44.64 c5.03-12.88,9.29-21.12,13-25.62l0.15-0.18c4.5-5.09,13.2-9.45,23.2-12.96c5.09-1.78,10.57-3.38,16.01-4.75 c-1.22-0.97-2.39-2-3.49-3.1c-7.52-7.52-12.18-17.92-12.18-29.39c0-11.45,4.65-21.83,12.18-29.37l0.03-0.03 c7.55-7.53,17.93-12.18,29.37-12.18c11.45,0,21.83,4.65,29.37,12.18l0.03,0.03c7.53,7.55,12.18,17.93,12.18,29.37 c0,11.48-4.65,21.87-12.18,29.39c-1.1,1.1-2.27,2.13-3.49,3.11c5.43,1.38,10.91,2.97,16,4.75c10,3.5,18.71,7.87,23.2,12.96 l0.15,0.18c3.71,4.5,7.97,12.74,13,25.62c4.87,12.48,10.59,29.48,17.35,51.89l0.14,0.54c0.82,3.22,0.89,6.47,0.32,9.56 c-0.75,4.07-2.61,7.81-5.34,10.8c-2.73,3-6.33,5.28-10.54,6.42c-3.24,0.87-6.84,1.05-10.67,0.35l-0.9-0.23l-5.69-1.91 c0.89,0.94,1.84,1.9,2.83,2.87c6.94,6.78,16.21,14.09,28.32,22.26C267.62,350.42,271.14,353.93,273.58,358.13z"/>
+  </g>
+</svg>

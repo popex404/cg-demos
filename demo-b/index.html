@@ -1,23 +1,567 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Demo B — Alelyche Ancestral (Placeholder)</title>
-  <style>
-    body { font-family: Georgia, serif; background: #00402b; color: #f2e9e2; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-    .box { text-align: center; }
-    .label { font-family: system-ui, sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: #7FFFD4; margin-bottom: 1rem; }
-    h1 { font-size: 1.75rem; font-weight: normal; margin-bottom: 0.5rem; }
-    p { font-family: system-ui, sans-serif; color: #C3B091; font-size: 0.9rem; }
-    a { color: #7FFFD4; font-family: system-ui, sans-serif; font-size: 0.8rem; display: block; margin-top: 2rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alelyche Ancestral — Terapia Holística, Reiki y Numerología en Quillota</title>
+<meta name="description" content="Terapia holística personalizada en Quillota. Limpieza energética, Reiki, numerología pitagórica y ceremonias con seguimiento incluido. Chely García Pinilla, terapeuta holística Quinta Región. También Aleliche, Alelishe, Alelyshe Ancestral.">
+<meta name="keywords" content="terapia holística Quillota, limpieza energética Chile, reiki Quinta Región, numerología pitagórica Chile, limpieza de mala vibra, círculo de mujeres Quillota, sanación emocional Chile, ayuda psicológica holística Chile, terapeuta emocional Quillota">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Alelyche Ancestral — Terapia Holística en Quillota">
+<meta property="og:description" content="Sesiones personalizadas de Reiki, limpieza energética y numerología. Seguimiento por WhatsApp incluido. Todo Chile.">
+<meta property="og:image" content="../assets/Hero-chely.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://popex404.github.io/cg-demos/demo-b/">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Alelyche Ancestral","description":"Terapia holística personalizada: Reiki, limpieza energética, numerología pitagórica y ceremonias en Quillota, Quinta Región, Chile.","telephone":"+56982372185","email":"chely1709@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Quillota","addressRegion":"Quinta Región","addressCountry":"CL"},"priceRange":"$10.000 - $47.000 CLP","openingHours":"Mo-Su","sameAs":["https://www.instagram.com/Alelyche","https://www.tiktok.com/@alelycheancestral","https://linktr.ee/AlelycheAncestral"],"founder":{"@type":"Person","name":"Chely García Pinilla","jobTitle":"Terapeuta Holística"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo es una sesión típica con vos?","acceptedAnswer":{"@type":"Answer","text":"No hay sesión típica — cada una se arma según lo que traés ese día. Antes de empezar hablamos de cómo llegás y qué necesitás."}},{"@type":"Question","name":"¿Se puede hacer la sesión online?","acceptedAnswer":{"@type":"Answer","text":"Sí. La mayoría de los servicios se ofrecen online para todo Chile. Las ceremonias y círculos son presenciales."}},{"@type":"Question","name":"¿Cuánto dura una sesión?","acceptedAnswer":{"@type":"Answer","text":"Depende del servicio. Reiki Presencial 1h, Reiki Momento de Paz 1.5h, Círculos y Ceremonias 2-2.5h."}},{"@type":"Question","name":"¿Qué pasa después de la sesión?","acceptedAnswer":{"@type":"Answer","text":"Quedás disponible por WhatsApp durante 1-2 semanas. Preguntas ilimitadas, sin costo adicional."}},{"@type":"Question","name":"¿Tengo que creer en esto para que funcione?","acceptedAnswer":{"@type":"Answer","text":"No hace falta que creas de antemano. Sí ayuda que estés abierta a la experiencia."}},{"@type":"Question","name":"¿Cuánto cuesta una sesión?","acceptedAnswer":{"@type":"Answer","text":"Desde $10.000 CLP hasta $47.000 CLP. Todos incluyen seguimiento post-sesión por WhatsApp."}},{"@type":"Question","name":"¿Hacés ceremonias fuera de Quillota?","acceptedAnswer":{"@type":"Answer","text":"Sí, con cargo adicional fuera de Quillota, Calera y La Cruz."}},{"@type":"Question","name":"¿Cómo pago?","acceptedAnswer":{"@type":"Answer","text":"Transferencia bancaria o efectivo."}}]}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --verde:#00402b;--verde2:#012e1f;--verde3:#011f15;
+  --aqua:#7FFFD4;--beige:#C3B091;
+  --crema:#f2e9e2;--blanco:#ffffff;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--verde);color:var(--crema);line-height:1.75;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.2}
+h1{font-size:clamp(2.1rem,5.5vw,3.6rem)}
+h2{font-size:clamp(1.5rem,3.2vw,2.2rem)}
+h3{font-size:clamp(1rem,2vw,1.2rem)}
+.label{font-family:var(--sans);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--aqua);display:block;margin-bottom:.6rem}
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 1.5rem}
+section{padding:5.5rem 0}
+.btn{display:inline-block;font-family:var(--sans);font-size:.95rem;font-weight:600;padding:.9rem 2.25rem;border-radius:6px;cursor:pointer;transition:all .2s;text-align:center}
+.btn-primary{background:var(--aqua);color:var(--verde)}
+.btn-primary:hover{background:#6fefbf}
+.btn-outline{border:1px solid rgba(127,255,212,.55);color:var(--aqua)}
+.btn-outline:hover{background:rgba(127,255,212,.08)}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-header h2{color:var(--blanco);margin-bottom:.6rem}
+.section-header p{font-size:.95rem;opacity:.7;max-width:560px;margin:.5rem auto 0}
+
+/* WAVE DIVIDER */
+.wave{display:block;width:100%;overflow:hidden;line-height:0}
+.wave svg{display:block;width:100%}
+
+/* HEADER */
+#header{position:fixed;top:0;left:0;width:100%;z-index:200;transition:background .4s,box-shadow .4s;background:transparent}
+#header.scrolled{background:rgba(1,46,31,.97);box-shadow:0 1px 20px rgba(0,0,0,.35)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;max-width:1100px;margin:0 auto}
+.header-logo img{height:40px;width:auto;border-radius:4px}
+.header-nav{display:flex;align-items:center;gap:1.75rem}
+.header-nav a{font-size:.83rem;letter-spacing:.05em;color:var(--crema);opacity:.8;transition:opacity .2s}
+.header-nav a:hover{opacity:1}
+.header-social{display:flex;align-items:center;gap:.75rem}
+.header-social a{color:var(--crema);opacity:.65;transition:opacity .2s;display:flex;align-items:center}
+.header-social a:hover{opacity:1}
+.header-wa-mobile{display:none;background:#25D366;color:#fff;font-size:.78rem;font-weight:600;padding:.5rem 1rem;border-radius:6px}
+@media(max-width:768px){.header-nav,.header-social{display:none}.header-wa-mobile{display:block}}
+
+/* HERO */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding-bottom:7rem}
+.hero-bg{position:absolute;inset:0;background:url('../assets/Hero-chely.jpg') center/cover no-repeat;animation:heroZoom 14s ease-in-out infinite alternate;z-index:0}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,20,10,.9) 0%,rgba(0,20,10,.45) 55%,rgba(0,20,10,.2) 100%);z-index:1}
+.hero-shape{position:absolute;bottom:0;left:0;width:100%;z-index:2;line-height:0}
+.hero-shape svg{display:block;width:100%;height:80px}
+.hero-content{position:relative;z-index:3;max-width:720px;padding:6.5rem 1.5rem 4rem}
+.hero-pre{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--aqua);margin-bottom:1.1rem;display:block}
+.hero-content h1{color:var(--blanco);margin-bottom:1.35rem}
+.hero-content h1 em{color:var(--aqua);font-style:normal}
+.hero-sub{font-size:1.1rem;color:var(--crema);opacity:.88;max-width:580px;margin-bottom:2.25rem;line-height:1.75}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.25rem}
+.hero-trust{font-size:.76rem;color:var(--crema);opacity:.55;letter-spacing:.04em}
+/* Logo slot */
+.hero-logo-slot{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:76px;height:76px;border-radius:50%;overflow:hidden;border:2px solid var(--aqua);background:var(--verde2);z-index:10;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hero-logo-slot img{width:100%;height:100%;object-fit:cover}
+
+/* PAIN */
+#pain{background:var(--verde2);padding-top:6rem}
+.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:2.5rem}
+.pain-item{background:rgba(127,255,212,.04);border:1px solid rgba(127,255,212,.1);border-radius:12px;padding:1.5rem;transition:border-color .2s}
+.pain-item:hover{border-color:rgba(127,255,212,.28)}
+.pain-num{font-family:var(--serif);font-size:2.2rem;color:var(--aqua);opacity:.2;line-height:1;margin-bottom:.4rem}
+.pain-item h3{color:var(--blanco);margin-bottom:.4rem}
+.pain-item p{font-size:.88rem;opacity:.75;line-height:1.65}
+.leaf-wrap{text-align:center;padding:1.5rem 0;opacity:.4}
+.leaf-wrap img{width:160px;margin:0 auto;filter:invert(82%) sepia(35%) saturate(500%) hue-rotate(110deg)}
+@media(max-width:768px){.pain-grid{grid-template-columns:1fr}}
+
+/* MECANISMO */
+#mecanismo{background:var(--verde)}
+.mec-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.mec-img{border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.mec-img img{width:100%;height:440px;object-fit:cover}
+.mec-text h2{color:var(--blanco);margin-bottom:1rem}
+.razon{font-size:.9rem;opacity:.75;margin-bottom:1.25rem;font-style:italic;border-left:2px solid var(--beige);padding-left:1rem;line-height:1.65}
+.mec-name{font-family:var(--serif);color:var(--aqua);font-size:1.05rem;margin-bottom:.85rem}
+.mec-diffs{list-style:none;display:flex;flex-direction:column;gap:.85rem}
+.mec-diffs li{font-size:.92rem;padding-left:1.4rem;position:relative;opacity:.88}
+.mec-diffs li::before{content:'◆';position:absolute;left:0;color:var(--aqua);font-size:.5rem;top:.5rem}
+@media(max-width:768px){.mec-inner{grid-template-columns:1fr}.mec-img img{height:260px}}
+
+/* CREDIBILIDAD */
+#prueba{background:var(--verde2)}
+.testimonios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.testimonio-card{background:rgba(127,255,212,.04);border:1px solid rgba(127,255,212,.15);border-radius:12px;padding:1.75rem;transition:transform .2s,border-color .2s}
+.testimonio-card:hover{transform:translateY(-3px);border-color:rgba(127,255,212,.3)}
+.testimonio-texto{font-size:.88rem;line-height:1.72;opacity:.85;margin-bottom:1.1rem;font-style:italic}
+.testimonio-nombre{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--aqua)}
+.datos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem;text-align:center}
+.dato-item{padding:1.5rem .5rem;border-radius:8px;background:rgba(127,255,212,.04);border:1px solid rgba(127,255,212,.08)}
+.dato-num{font-family:var(--serif);font-size:2.2rem;color:var(--aqua);display:block;margin-bottom:.25rem}
+.dato-label{font-size:.76rem;opacity:.65;line-height:1.4}
+@media(max-width:900px){.testimonios-grid{grid-template-columns:1fr}.datos-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* SERVICIOS */
+#solucion{background:var(--verde3)}
+.servicios-intro{text-align:center;margin-bottom:2.75rem}
+.service-icon-top{width:64px;margin:0 auto 1.5rem;opacity:.5;filter:sepia(1) saturate(.6) brightness(1.4)}
+.servicios-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.25rem}
+.tab-btn{font-family:var(--sans);font-size:.76rem;letter-spacing:.07em;text-transform:uppercase;padding:.5rem 1.1rem;border:1px solid rgba(127,255,212,.25);background:transparent;color:var(--crema);cursor:pointer;border-radius:6px;transition:all .2s}
+.tab-btn:hover,.tab-btn.active{background:var(--aqua);color:var(--verde);border-color:var(--aqua)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.servicios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:1.25rem}
+.servicio-card{background:rgba(255,255,255,.04);border:1px solid rgba(127,255,212,.12);border-radius:16px;padding:1.5rem;text-align:center;transition:transform .2s,border-color .2s,box-shadow .2s}
+.servicio-card:hover{transform:translateY(-5px);border-color:rgba(127,255,212,.35);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.card-img{width:100px;height:100px;border-radius:50%;object-fit:cover;margin:0 auto .9rem;border:2px solid rgba(127,255,212,.2)}
+.servicio-card h3{font-size:.95rem;color:var(--blanco);margin-bottom:.35rem}
+.precio{font-size:1.15rem;font-weight:700;color:var(--aqua);margin-bottom:.5rem}
+.desc{font-size:.8rem;opacity:.68;line-height:1.55;margin-bottom:.7rem}
+.seguimiento-badge{font-size:.65rem;color:var(--beige);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.7rem;display:block}
+.card-star{color:var(--beige);font-size:.7rem;margin-bottom:.25rem}
+.card-btn{display:block;font-size:.8rem;font-weight:600;padding:.55rem;background:transparent;border:1px solid rgba(127,255,212,.3);color:var(--aqua);border-radius:6px;text-align:center;transition:all .2s;margin-top:.35rem}
+.card-btn:hover{background:var(--aqua);color:var(--verde)}
+.servicios-footer{text-align:center;margin-top:3rem}
+.servicios-footer p{font-size:.8rem;opacity:.5;margin-top:.65rem}
+
+/* PARA QUIÉN */
+#para-quien{background:var(--verde2)}
+.perfiles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.perfil-card{border-top:2px solid var(--beige);padding-top:1.25rem}
+.perfil-card h3{color:var(--blanco);margin-bottom:.5rem;font-size:.98rem}
+.perfil-card p{font-size:.86rem;opacity:.74;margin-bottom:.65rem}
+.perfil-servicios{font-size:.74rem;color:var(--aqua);opacity:.75}
+.calificador{margin-top:2.25rem;padding:1.5rem;border:1px solid rgba(195,176,145,.25);border-radius:12px;font-size:.88rem;opacity:.74;font-style:italic}
+@media(max-width:768px){.perfiles-grid{grid-template-columns:1fr}}
+
+/* VALUE STACK */
+#value-stack{background:var(--verde)}
+.value-inner{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem}
+.value-block{background:rgba(127,255,212,.03);border:1px solid rgba(127,255,212,.1);border-radius:12px;padding:1.5rem}
+.value-title{color:var(--blanco);margin-bottom:.85rem;font-size:1rem;font-family:var(--serif)}
+.value-table{width:100%;border-collapse:collapse;font-size:.84rem}
+.value-table th{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:.55rem .5rem;border-bottom:1px solid rgba(127,255,212,.15);color:var(--aqua)}
+.value-table td{padding:.5rem .5rem;border-bottom:1px solid rgba(255,255,255,.04);opacity:.78}
+.value-table tr.total td{font-weight:700;border-top:1px solid rgba(127,255,212,.2);color:var(--crema);opacity:1}
+.value-table tr.precio-final td{color:var(--aqua);font-size:1.05rem;font-weight:700;opacity:1}
+.frase-ancla{margin-top:2.25rem;padding:1.5rem;border-left:3px solid var(--aqua);border-radius:0 8px 8px 0;font-size:.95rem;font-style:italic;opacity:.85;background:rgba(127,255,212,.04)}
+@media(max-width:768px){.value-inner{grid-template-columns:1fr}}
+
+/* URGENCIA */
+#urgencia{background:var(--verde2);text-align:center}
+#urgencia h2{color:var(--blanco);margin-bottom:.9rem}
+.urgencia-main{font-size:1.15rem;font-style:italic;max-width:580px;margin:0 auto .85rem;opacity:.9}
+.urgencia-sub{font-size:.9rem;opacity:.65;max-width:480px;margin:0 auto 2rem}
+
+/* GARANTÍA */
+#garantia{background:var(--verde)}
+.garantia-inner{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.garantia-badge-slot{width:160px;height:160px;border:2px dashed rgba(127,255,212,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.66rem;opacity:.45;margin:0 auto 1.5rem;color:var(--aqua);letter-spacing:.06em;line-height:1.5}
+.garantia-texto h2{color:var(--blanco);margin-bottom:.85rem}
+.garantia-texto h3{font-family:var(--serif);font-size:1.2rem;color:var(--aqua);margin-bottom:.7rem}
+.garantia-texto p{font-size:.92rem;opacity:.78;margin-bottom:.7rem}
+.garantia-items{list-style:none;margin-top:.85rem;display:flex;flex-direction:column;gap:.6rem}
+.garantia-items li{font-size:.9rem;padding-left:1.3rem;position:relative;opacity:.88}
+.garantia-items li::before{content:'✓';position:absolute;left:0;color:var(--aqua)}
+@media(max-width:768px){.garantia-inner{grid-template-columns:1fr}}
+
+/* FAQ */
+#faq{background:var(--verde2)}
+.faq-list{margin-top:2.5rem}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.07)}
+.faq-question{width:100%;background:transparent;border:none;color:var(--crema);font-family:var(--sans);font-size:.98rem;text-align:left;padding:1.1rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.faq-question span:first-child{opacity:.82}
+.faq-icon{font-size:1.1rem;color:var(--aqua);flex-shrink:0;transition:transform .25s}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:.88rem;opacity:.75;line-height:1.72}
+.faq-answer-inner{padding-bottom:1rem}
+.faq-item.open .faq-answer{max-height:260px}
+
+/* CTA FINAL */
+#cta-final{position:relative;overflow:hidden;text-align:center;padding:8rem 1.5rem}
+.cta-bg{position:absolute;inset:0;background:url('../assets/Hero-chely.jpg') center/cover no-repeat;z-index:0}
+.cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,20,10,.88) 0%,rgba(0,64,43,.75) 100%);z-index:1}
+.cta-content{position:relative;z-index:2}
+.cta-content h2{color:var(--blanco);font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:.75rem}
+.cta-content p{font-size:1.05rem;opacity:.8;margin-bottom:2.25rem}
+.cta-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--verde3);border-top:1px solid rgba(127,255,212,.08);padding:2.25rem 1.5rem;text-align:center}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-logo{height:34px;margin:0 auto .75rem;border-radius:4px}
+footer p{font-size:.74rem;opacity:.45;margin-bottom:.3rem}
+.footer-links a{font-size:.74rem;color:var(--aqua);opacity:.5}
+.footer-links a:hover{opacity:1}
+.privacidad-nota{margin-top:1.25rem;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.04);font-size:.68rem;opacity:.38;line-height:1.6;max-width:680px;margin-left:auto;margin-right:auto}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:300;background:#25D366;color:#fff;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:transform .2s}
+.wa-float:hover{transform:scale(1.1)}
+</style>
 </head>
 <body>
-  <div class="box">
-    <p class="label">Demo B — Full Palette</p>
-    <h1>En construcción</h1>
-    <p>La landing page de Alelyche Ancestral se construirá aquí.</p>
-    <a href="../index.html">← Volver a selección</a>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#hero" class="header-logo">
+      <img src="../assets/Logo-Alelyche.jpg" alt="Alelyche Ancestral">
+    </a>
+    <nav class="header-nav">
+      <a href="#pain">Por qué Chely</a>
+      <a href="#solucion">Servicios</a>
+      <a href="#garantia">Garantía</a>
+      <a href="#faq">Preguntas</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:.85rem">
+      <div class="header-social">
+        <a href="https://www.instagram.com/Alelyche" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@alelycheancestral" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.72a8.17 8.17 0 004.77 1.52V6.79a4.85 4.85 0 01-1-.1z"/></svg>
+        </a>
+        <a href="https://wa.me/56982372185" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+      <a href="https://wa.me/56982372185?text=Hola%20Chely%21" class="header-wa-mobile" target="_blank">WhatsApp</a>
+    </div>
   </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" role="img" aria-label="Chely García Pinilla, terapeuta holística de Alelyche Ancestral"></div>
+  <div class="hero-overlay"></div>
+  <!-- Wave shape divider -->
+  <div class="hero-shape">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#012e1f"/></svg>
+  </div>
+  <div class="hero-content container">
+    <span class="hero-pre">4 años · +500 personas acompañadas · Seguimiento post-sesión incluido siempre</span>
+    <h1>Sanar no es un protocolo.<br>Es una sesión <em>hecha para ti</em>.</h1>
+    <p class="hero-sub">Limpieza energética, Reiki y numerología personalizados al 100% — con seguimiento vía WhatsApp hasta que te sientas bien.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20una%20sesi%C3%B3n.%20%C2%BFC%C3%B3mo%20empezamos%3F" class="btn btn-primary" target="_blank" rel="noopener">Agenda tu sesión por WhatsApp</a>
+      <a href="#solucion" class="btn btn-outline">Ver servicios</a>
+    </div>
+    <p class="hero-trust">4 años · ~20 certificaciones · +500 personas · Seguimiento 1-2 semanas incluido</p>
+  </div>
+  <div class="hero-logo-slot">
+    <img src="../assets/Logo-Alelyche.jpg" alt="Alelyche Ancestral">
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section id="pain">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">¿Te suena familiar?</span>
+      <h2>Lo que sientes tiene nombre</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-item"><div class="pain-num">01</div><h3>¿Sientes que cargás con algo que no es tuyo?</h3><p>Esa sensación de pesadez, de que algo no fluye, de que te cuesta avanzar aunque hagas todo bien. No es tu cabeza. Es energía que necesita moverse.</p></div>
+      <div class="pain-item"><div class="pain-num">02</div><h3>¿Probaste cosas y volviste al mismo lugar?</h3><p>Meditaciones, talleres, libros — y a los días estás igual. Porque una sesión genérica no trabaja lo que es tuyo.</p></div>
+      <div class="pain-item"><div class="pain-num">03</div><h3>¿Querés un espacio donde no tengas que explicar todo desde cero?</h3><p>Con alguien que te escuche de verdad, adapte el trabajo a lo que necesitás hoy, y esté disponible después también.</p></div>
+      <div class="pain-item"><div class="pain-num">04</div><h3>¿Querés limpiar tu energía pero no sabés por dónde empezar?</h3><p>Hay muchas opciones. Pocas que te expliquen qué están haciendo y por qué, y que te acompañen después de la sesión.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="#00402b"/></svg></div>
+<div class="leaf-wrap"><img src="../assets/symbol-leaf-divider.svg" alt="" aria-hidden="true"></div>
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,30 C480,0 960,60 1440,30 L1440,60 L0,60 Z" fill="#012e1f"/></svg></div>
+
+<!-- MECANISMO -->
+<section id="mecanismo">
+  <div class="container">
+    <div class="mec-inner">
+      <div class="mec-img">
+        <img src="../assets/Hero-chely.jpg" alt="Chely García Pinilla realizando sesión de Reiki con sonoterapia en Quillota" loading="lazy">
+      </div>
+      <div class="mec-text">
+        <span class="label">Por qué es diferente</span>
+        <h2>Cada sesión mía es distinta a cualquier otra</h2>
+        <p class="razon">"La mayoría de las terapias sigue un protocolo fijo: mismos pasos, mismo orden, para todos. Un protocolo estándar trabaja sobre la superficie, no sobre lo que es tuyo."</p>
+        <p class="mec-name">Método Sesión Viva</p>
+        <ul class="mec-diffs">
+          <li>Personalización real: la sesión se construye según lo que necesitás hoy, no según un manual</li>
+          <li>Combinación de técnicas: Reiki + sonoterapia + oráculo + frecuencias según el caso</li>
+          <li>Seguimiento post-sesión: 1-2 semanas de WhatsApp — preguntas ilimitadas, sin cargo extra</li>
+          <li>Más de 20 herramientas certificadas: la técnica que te sirve, no la que el terapeuta siempre usa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,0 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="#012e1f"/></svg></div>
+
+<!-- CREDIBILIDAD -->
+<section id="prueba">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Lo que dicen quienes ya fueron</span>
+      <h2>Personas reales, procesos reales</h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card"><p class="testimonio-texto">"Llegué con mucha carga y sin saber bien qué esperar. Chely adaptó la sesión a lo que yo necesitaba ese día — no siguió un protocolo, eso se notó. Lo que más me ayudó fue el seguimiento después: poder escribirle cuando se me volvía a aparecer algo sin sentirme una molestia. Fue un antes y un después."</p><span class="testimonio-nombre">Valentina, 32 años · Santiago</span></div>
+      <div class="testimonio-card"><p class="testimonio-texto">"Yo iba con mucho escepticismo, la verdad. No sabía nada de esto. Chely me explicó todo lo que hacía y por qué, sin hacerme sentir ignorante. Después sentí algo que no sé cómo explicar — pero noté que algo cambió. Y días después me escribió para ver cómo estaba. No me esperaba ese seguimiento."</p><span class="testimonio-nombre">Daniela, 28 años · Quilpué</span></div>
+      <div class="testimonio-card"><p class="testimonio-texto">"Organicé un círculo de mujeres para mi grupo de amigas y Chely fue increíble. Nos tuvo contenidas desde el primer momento, explicó todo con claridad, y cada una se llevó algo distinto. Varias me dijeron que fue de lo más lindo que habían vivido en grupo."</p><span class="testimonio-nombre">Fernanda, 38 años · La Cruz</span></div>
+    </div>
+    <div class="datos-grid">
+      <div class="dato-item"><span class="dato-num">4</span><span class="dato-label">años de práctica continua</span></div>
+      <div class="dato-item"><span class="dato-num">+20</span><span class="dato-label">certificaciones holísticas y Reiki</span></div>
+      <div class="dato-item"><span class="dato-num">+500</span><span class="dato-label">personas acompañadas</span></div>
+      <div class="dato-item"><span class="dato-num">🇨🇱</span><span class="dato-label">online para todo Chile</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="solucion">
+  <div class="container">
+    <div class="servicios-intro">
+      <img src="../assets/symbol-service-icon.svg" alt="" class="service-icon-top" aria-hidden="true">
+      <span class="label">Lo que ofrezco</span>
+      <h2>Todos los servicios incluyen seguimiento por WhatsApp</h2>
+      <p>Elegí por lo que sentís, no por lo que sabés de holístico. ¿No sabés cuál elegir? Te ayudo.</p>
+    </div>
+    <div class="servicios-tabs">
+      <button class="tab-btn active" data-tab="num">Numerología</button>
+      <button class="tab-btn" data-tab="limp">Limpiezas</button>
+      <button class="tab-btn" data-tab="rei">Reiki</button>
+      <button class="tab-btn" data-tab="esp">Únicos</button>
+      <button class="tab-btn" data-tab="circ">Círculos</button>
+      <button class="tab-btn" data-tab="pack">Packs</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-num">
+      <div class="servicios-grid">
+        <div class="servicio-card"><img src="../assets/Num-Per.png" alt="Numerología Personal" class="card-img" loading="lazy"><h3>Numerología Personal</h3><div class="precio">$15.000 CLP</div><p class="desc">Número del alma, karma, dones y misión de vida. Informe escrito + audio por WhatsApp.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20Personal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Num-Par.png" alt="Numerología de Pareja" class="card-img" loading="lazy"><h3>Numerología Pareja</h3><div class="precio">$15.000 CLP</div><p class="desc">Sinastría numerológica: energía de la relación, aprendizajes y potenciadores mutuos.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20de%20Pareja.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Num-voc.png" alt="Numerología Vocacional" class="card-img" loading="lazy"><h3>Numerología Vocacional</h3><div class="precio">$15.000 CLP</div><p class="desc">Actividades alineadas con tu energía, bloqueos del merecimiento y abundancia desde tu frecuencia real.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20Vocacional.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Num-Hog.png" alt="Numerología Hogar" class="card-img" loading="lazy"><h3>Numerología Hogar y Celular</h3><div class="precio">$10.000 CLP</div><p class="desc">Vibración de tu vivienda y celular. Cómo armonizarlos. Ideal para empezar.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Numerolog%C3%ADa%20del%20Hogar.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/num-full.png" alt="Carta Numerológica Completa" class="card-img" loading="lazy"><div class="card-star">⭐ Más completo</div><h3>Carta Numerológica Completa</h3><div class="precio">$35.000 CLP</div><p class="desc">Visión pitagórica + tántrica en vivo. Vibración, desafíos, dones, misión, ciclo personal. Videollamada 60-90 min.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Carta%20Numerol%C3%B3gica%20Completa.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-limp">
+      <div class="servicios-grid">
+        <div class="servicio-card"><img src="../assets/lim-per.jpg" alt="Limpieza Personal" class="card-img" loading="lazy"><h3>Limpieza Personal</h3><div class="precio">$26.000 CLP</div><p class="desc">Cruz de Ankh (𓋹): elimina +20 contaminaciones. Informe + audio + oráculo egipcio.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Limpieza%20Personal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Lim-Cas.png" alt="Limpieza de Casa" class="card-img" loading="lazy"><h3>Limpieza de Casa</h3><div class="precio">$26.000 CLP</div><p class="desc">Campo de tu hogar con Cruz de Ankh. Informe + recomendaciones + oráculo.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Limpieza%20de%20Casa.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-rei">
+      <div class="servicios-grid">
+        <div class="servicio-card"><img src="../assets/rei-pre.png" alt="Reiki Presencial" class="card-img" loading="lazy"><h3>Reiki Presencial + Sonidos</h3><div class="precio">$22.000 CLP</div><p class="desc">Reiki + tambor chamánico + cuenco tibetano + pukudrum. 1 hora. Apto niños y adultos.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Reiki%20Presencial.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/rei-full.png" alt="Reiki Momento de Paz" class="card-img" loading="lazy"><div class="card-star">⭐ Experiencia completa</div><h3>Reiki Momento de Paz</h3><div class="precio">$29.000 CLP</div><p class="desc">Sahumación + sonoterapia + Reiki + gemoterapia + oráculo. Espacio seguro. 1.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Reiki%20Momento%20de%20Paz.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Rei-dist.png" alt="Reiki a Distancia" class="card-img" loading="lazy"><h3>Reiki a Distancia</h3><div class="precio">$18.000 CLP</div><p class="desc">Aura y chakras desde tu casa. Sonoterapia + gemoterapia. 45 min. Todo Chile.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Reiki%20a%20Distancia.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-esp">
+      <div class="servicios-grid">
+        <div class="servicio-card"><img src="../assets/Akashico.png" alt="Registros Akáshicos" class="card-img" loading="lazy"><h3>Registros Akáshicos</h3><div class="precio">$26.000 CLP</div><p class="desc">Comprensión profunda de quién sos. No es adivinación — es lectura de patrones y misión de alma. Videollamada 60-90 min.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesan%20los%20Registros%20Ak%C3%A1shicos.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/San-Ute.png" alt="Sanación de Útero" class="card-img" loading="lazy"><h3>Sanación de Útero</h3><div class="precio">$29.000 CLP</div><p class="desc">Libera memorias del linaje femenino. Cacao + meditación + respiración. Presencial o videollamada.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Sanaci%C3%B3n%20de%20%C3%9Atero.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-circ">
+      <p style="font-size:.84rem;opacity:.6;margin-bottom:1.5rem">Me traslado a domicilio. Fuera de Quillota, Calera y La Cruz: cargo adicional.</p>
+      <div class="servicios-grid">
+        <div class="servicio-card"><img src="../assets/exp-per.jpg" alt="Experiencia Personal" class="card-img" loading="lazy"><h3>Experiencia Personal</h3><div class="precio">$29.000 CLP</div><p class="desc">Un espacio solo para vos. Personalizado 100%. Meditaciones + limpieza + oráculo. 1.5-2 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20la%20Experiencia%20Personal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Exp-grup.png" alt="Experiencia Grupal" class="card-img" loading="lazy"><h3>Experiencia Grupal</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Momento en tribu para conectar de verdad. Exclusivo para tu grupo. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20una%20Experiencia%20Grupal.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Circ-Amigas.png" alt="Círculo de Amigas" class="card-img" loading="lazy"><h3>Círculo de Amigas</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Sahumos + meditación + sonoterapia + numerología + rito de quema + oráculo. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20un%20C%C3%ADrculo%20de%20Amigas.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Circ-Familiar.png" alt="Círculo Familiar" class="card-img" loading="lazy"><h3>Círculo Familiar</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Conexión y honrar ancestros. Niños hasta 13 años sin costo. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20un%20C%C3%ADrculo%20Familiar.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Cer-Cump.png" alt="Ceremonia de Cumpleaños" class="card-img" loading="lazy"><div class="card-star">⭐ $11.000/persona si son +10</div><h3>Ceremonia de Cumpleaños</h3><div class="precio">$17.000/persona · mín. 6</div><p class="desc">Un portal donde quienes amas le dicen a la festejada lo importante que es. Altar + mantas + sonoterapia. 2-2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20una%20Ceremonia%20de%20Cumplea%C3%B1os.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-pack">
+      <div class="servicios-grid">
+        <div class="servicio-card"><img src="../assets/pack-1.png" alt="Pack Abrecaminos" class="card-img" loading="lazy"><h3>Pack Abrecaminos + Limpieza Personal</h3><div class="precio">$44.000 CLP</div><p class="desc">Limpieza completa + apertura de caminos + oráculo egipcio + informe + audio. Remoto. 1-1.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Pack%20Abrecaminos.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+        <div class="servicio-card"><img src="../assets/Pack-2.jpg" alt="Pack Limpieza Personal y Hogar" class="card-img" loading="lazy"><div class="card-star">Ahorrás $5.000 CLP</div><h3>Pack Limpieza Personal + Hogar</h3><div class="precio">$47.000 CLP <span style="font-size:.72rem;opacity:.5;text-decoration:line-through">$52.000</span></div><p class="desc">Limpieza Personal + Limpieza de Casa + oráculo + informe + audio. Una sesión continua. 2.5 horas.</p><span class="seguimiento-badge">✦ Seguimiento incluido</span><a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20me%20interesa%20el%20Pack%20Limpieza%20Personal%20y%20Hogar.%20%C2%BFC%C3%B3mo%20agendo%3F" class="card-btn" target="_blank">Agendar</a></div>
+      </div>
+    </div>
+
+    <div class="servicios-footer">
+      <a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20no%20s%C3%A9%20qu%C3%A9%20servicio%20elegir.%20%C2%BFMe%20ayud%C3%A1s%3F" class="btn btn-outline" target="_blank">¿No sé cuál elegir? Escribime</a>
+      <p>Medios de pago: Transferencia bancaria · Efectivo</p>
+    </div>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" fill="#012e1f"/></svg></div>
+
+<!-- PARA QUIÉN ES -->
+<section id="para-quien">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">¿Esto es para mí?</span>
+      <h2>Para quién es Alelyche Ancestral</h2>
+    </div>
+    <div class="perfiles-grid">
+      <div class="perfil-card"><h3>"Siento que cargo con algo que no es mío"</h3><p>Mujeres 25-45 que ya probaron talleres y terapias. Quieren sanar heridas o patrones que se repiten sin protocolo estándar.</p><div class="perfil-servicios">Ideal: Limpieza Personal · Experiencia Personal · Sanación de Útero</div></div>
+      <div class="perfil-card"><h3>"Siento mala vibra, algo está bloqueado"</h3><p>Mujeres 20-35 en racha mala. No necesariamente con perfil espiritual. Quieren resultado concreto y perceptible.</p><div class="perfil-servicios">Ideal: Limpieza Personal · Pack Abrecaminos + Limpieza</div></div>
+      <div class="perfil-card"><h3>"Quiero algo especial para mi grupo"</h3><p>Organizadoras de cumpleaños o círculos. Buscan algo significativo y bien contenido, con alguien que maneje la dinámica.</p><div class="perfil-servicios">Ideal: Círculos Alelyche · Ceremonias · Experiencia Grupal</div></div>
+    </div>
+    <p class="calificador">Si buscás una sesión de 30 minutos con protocolo fijo, no es lo que ofrezco. Mis sesiones son profundas, personalizadas y con seguimiento incluido.</p>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,20 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="#00402b"/></svg></div>
+
+<!-- VALUE STACK -->
+<section id="value-stack">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Lo que recibís por ese precio</span>
+      <h2>El valor real de una sesión</h2>
+      <p>Comparado con lo que cuestan por separado los mismos elementos en el mercado.</p>
+    </div>
+    <div class="value-inner">
+      <div class="value-block"><p class="value-title">Reiki Momento de Paz — $29.000 CLP</p><table class="value-table"><tr><th>Incluye</th><th>Valor mercado</th></tr><tr><td>Sesión de Reiki 1.5h (profesional)</td><td>$40.000–$80.000</td></tr><tr><td>Sonoterapia: cuencos + tambor</td><td>$12.000</td></tr><tr><td>Gemoterapia con cuarzos</td><td>$8.000</td></tr><tr><td>Sahumación ritual sagrada</td><td>$5.000</td></tr><tr><td>Lectura del oráculo</td><td>$10.000</td></tr><tr><td>Seguimiento WhatsApp 1-2 semanas</td><td>$15.000</td></tr><tr class="total"><td>Valor total referencial</td><td>$90.000–$130.000</td></tr><tr class="precio-final"><td>Precio Alelyche Ancestral</td><td>$29.000</td></tr></table></div>
+      <div class="value-block"><p class="value-title">Limpieza Personal Cruz de Ankh — $26.000 CLP</p><table class="value-table"><tr><th>Incluye</th><th>Valor mercado</th></tr><tr><td>Limpieza Cruz de Ankh (+20 cont.)</td><td>$35.000</td></tr><tr><td>Lectura del oráculo egipcio</td><td>$10.000</td></tr><tr><td>Informe escrito + audio por WA</td><td>$8.000</td></tr><tr><td>Seguimiento WhatsApp 1-2 semanas</td><td>$15.000</td></tr><tr class="total"><td>Valor total referencial</td><td>$68.000</td></tr><tr class="precio-final"><td>Precio Alelyche Ancestral</td><td>$26.000</td></tr></table></div>
+    </div>
+    <p class="frase-ancla">"Una sesión de Reiki profesional en el mercado cuesta entre $40.000 y $80.000 — sin sonoterapia, sin oráculo, sin seguimiento. Con Alelyche Ancestral, todo eso viene en una sola sesión por $29.000, con dos semanas de acompañamiento incluido."</p>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,30 C360,0 1080,60 1440,30 L1440,60 L0,60 Z" fill="#012e1f"/></svg></div>
+
+<!-- URGENCIA -->
+<section id="urgencia">
+  <div class="container">
+    <span class="label" style="text-align:center">No lo postergues</span>
+    <h2>La energía no espera</h2>
+    <p class="urgencia-main">"La energía no espera. Cada semana que postergás es una semana cargando lo que no es tuyo."</p>
+    <p class="urgencia-sub">Cuando más lo necesitás, menos energía tenés para buscarlo. Agendá ahora, cuando tenés claridad.</p>
+    <a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20quiero%20agendar%20una%20sesi%C3%B3n%20antes%20de%20que%20se%20llenen%20los%20horarios.%20%C2%BFQu%C3%A9%20disponibilidad%20ten%C3%A9s%3F" class="btn btn-primary" target="_blank" rel="noopener">Agendar por WhatsApp ahora</a>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,40 C480,0 960,60 1440,20 L1440,60 L0,60 Z" fill="#00402b"/></svg></div>
+
+<!-- GARANTÍA -->
+<section id="garantia">
+  <div class="container">
+    <div class="garantia-inner">
+      <div style="text-align:center">
+        <div class="garantia-badge-slot">Sello<br>Pacto de<br>Sanamiento<br><span style="font-size:.58rem;opacity:.5">(próximamente)</span></div>
+        <span class="label">Garantía real</span>
+      </div>
+      <div class="garantia-texto">
+        <h2>El Pacto de Sanamiento</h2>
+        <h3>No es un trato. Es un acompañamiento.</h3>
+        <p>Después de tu sesión no quedás sola. Estoy disponible por WhatsApp durante 1-2 semanas para acompañarte, resolver dudas y ajustar lo que necesites. Sin cargo adicional.</p>
+        <p>Esto no es un negocio de "paga y adiós". Es un pacto de sanamiento. La relación no termina cuando termina la sesión.</p>
+        <ul class="garantia-items">
+          <li>WhatsApp disponible 1-2 semanas post-sesión</li>
+          <li>Preguntas ilimitadas, sin costo adicional</li>
+          <li>Aplica a todos los servicios, siempre</li>
+          <li>No te quedás sola con el proceso</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="height:60px"><path d="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" fill="#012e1f"/></svg></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Preguntas frecuentes</span>
+      <h2>Todo lo que querías saber</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-question"><span>¿Cómo es una sesión típica con vos?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No hay sesión típica — cada una se arma según lo que traés ese día. Antes de empezar hablamos de cómo llegás y qué necesitás. A partir de ahí elijo las herramientas: Reiki, sonoterapia, lectura del oráculo, frecuencias, o la combinación que tenga más sentido.</div></div></div>
+      <div class="faq-item"><button class="faq-question"><span>¿Se puede hacer la sesión online?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Sí. La mayoría de los servicios se ofrecen online para todo Chile. Las ceremonias y círculos de mujeres son presenciales.</div></div></div>
+      <div class="faq-item"><button class="faq-question"><span>¿Cuánto dura una sesión?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Depende del servicio. Reiki Presencial: 1 hora. Reiki Momento de Paz: 1.5 horas. Círculos y Ceremonias: 2-2.5 horas. Hablamos antes para que tengas una idea clara.</div></div></div>
+      <div class="faq-item"><button class="faq-question"><span>¿Qué pasa después de la sesión?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Me quedás disponible por WhatsApp durante 1-2 semanas. Podés escribirme las veces que necesites — sin límite de preguntas, sin costo adicional.</div></div></div>
+      <div class="faq-item"><button class="faq-question"><span>¿Tengo que creer en esto para que funcione?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">No hace falta que creas de antemano. Sí ayuda que estés abierta a la experiencia. Muchas de mis clientas llegan con dudas y después me cuentan lo que sintieron.</div></div></div>
+      <div class="faq-item"><button class="faq-question"><span>¿Cuánto cuesta una sesión?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Desde $10.000 CLP (Numerología Hogar) hasta $35.000 CLP (Carta Numerológica Completa). Los packs van de $44.000 a $47.000. Los círculos grupales son $17.000 por persona (mínimo 6). Todos incluyen seguimiento post-sesión por WhatsApp.</div></div></div>
+      <div class="faq-item"><button class="faq-question"><span>¿Hacés ceremonias fuera de Quillota?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Sí, con cargo adicional por logística fuera de Quillota, Calera y La Cruz. Escribime y lo coordinamos.</div></div></div>
+      <div class="faq-item"><button class="faq-question"><span>¿Cómo pago?</span><span class="faq-icon">+</span></button><div class="faq-answer"><div class="faq-answer-inner">Transferencia bancaria o efectivo. Te paso los datos por WhatsApp al coordinar la sesión.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="cta-bg" role="img" aria-label="Sesión holística con Chely García Pinilla"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content container">
+    <span class="label" style="color:var(--aqua)">¿Lista para empezar?</span>
+    <h2>Una sola sesión.<br>Personalizada para vos.</h2>
+    <p>Con seguimiento incluido.</p>
+    <div class="cta-ctas">
+      <a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20quiero%20agendar%20una%20sesi%C3%B3n.%20%C2%BFPor%20d%C3%B3nde%20empezamos%3F" class="btn btn-primary" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+      <a href="#solucion" class="btn btn-outline">Ver todos los servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <img src="../assets/Logo-Alelyche.jpg" alt="Alelyche Ancestral" class="footer-logo">
+    <p>© 2026 Alelyche Ancestral · Quillota, Quinta Región, Chile</p>
+    <div class="footer-links"><a href="#privacidad">Política de privacidad</a></div>
+    <p class="privacidad-nota" id="privacidad">Los datos de contacto compartidos por WhatsApp son utilizados exclusivamente para coordinar sesiones y dar seguimiento post-sesión. No se comparten con terceros ni se utilizan con fines comerciales distintos al servicio contratado. Conforme a la Ley 19.628 de Protección de la Vida Privada, Chile.</p>
+  </div>
+</footer>
+
+<!-- WA FLOTANTE -->
+<a href="https://wa.me/56982372185?text=Hola%20Chely%21" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const hdr=document.getElementById('header');
+window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>80),{passive:true});
+
+document.querySelectorAll('.tab-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const t=b.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById('tab-'+t).classList.add('active');
+  });
+});
+
+document.querySelectorAll('.faq-question').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const item=b.parentElement;
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+</script>
 </body>
 </html>
