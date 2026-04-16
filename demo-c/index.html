@@ -217,6 +217,9 @@ section{padding:5.5rem 0}
 @media(max-width:900px){
   .hero-panel{width:88%;padding:2rem 2rem 2.5rem}
 }
+@media(max-width:768px){
+  .hero-panel{width:90%;margin:0 auto}
+}
 @media(max-width:600px){
   .hero-panel{width:100%;padding:2rem 1.25rem 2rem;box-shadow:none}
   .hero-boundary{gap:.85rem}
@@ -471,6 +474,19 @@ footer p{font-size:.74rem;color:var(--crema);opacity:.45;margin-bottom:.3rem}
 /* ===== WA FLOAT ===== */
 .wa-float{position:fixed;bottom:24px;right:24px;z-index:300;background:#25D366;color:#fff;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:transform .2s}
 .wa-float:hover{transform:scale(1.1)}
+
+/* ===== MOBILE OPTIMIZATIONS (768px) ===== */
+@media(max-width:768px){
+  /* Section padding — reduce from 5.5rem to 40px 16px */
+  section{padding:40px 16px}
+
+  /* Service tabs — horizontal scroll instead of wrapping */
+  .servicios-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.5rem}
+  .tab-btn{display:inline-block;flex-shrink:0}
+
+  /* Service cards grid — force single column */
+  .servicios-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
