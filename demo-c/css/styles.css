@@ -77,94 +77,186 @@ section{padding:5.5rem 0}
 @media(max-width:768px){.header-nav,.header-social{display:none}.header-wa-mobile{display:block}}
 
 /* ===================================================
-   HERO — Pirámide escalonada
-   Crown: 3 pasos + logo Alelyche en cúspide
+   HERO PREMIUM (Dribbble Style)
    =================================================== */
-#hero{
-  position:relative;
-  height:100svh;
-  min-height:640px;
-  display:flex;
-  flex-direction:column;
-  padding:0;
-  /* sin overflow:hidden para que la corona pueda sobresalir del panel */
-}
-.hero-bg{
-  position:absolute;
-  inset:0;
-  background:url('../assets/hero-cg.webp') center top/cover no-repeat;
-  z-index:0;
-}
-.hero-gradient-base{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:45%;
-  background:linear-gradient(to top,rgba(0,10,5,.3) 0%,transparent 100%);
-  z-index:1;
-}
-.hero-panel{
-  position:absolute;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:72%;
-  background:var(--crema);
-  padding:0 3.5rem 2.5rem;
-  text-align:center;
-  z-index:3;
-  box-shadow:0 -8px 40px rgba(0,0,0,.12);
-  overflow:visible;
+#hero.hero-premium {
+  position: relative;
+  height: 100svh;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  overflow: hidden;
+  background: var(--crema);
 }
 
-/* -- Crown: pasos escalonados que emergen sobre el panel -- */
-.hero-crown{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-top:-72px; /* los 3 pasos (24px c/u) suben por encima del borde del panel */
-  margin-bottom:1.75rem;
+.hero-bg.parallax-base {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 0;
+  background: url('../../assets/hero-cg.webp') center 30%/cover no-repeat;
 }
-.crown-step{
-  background:var(--crema);
-  position:relative;
-  flex-shrink:0;
-}
-.crown-step--sm{width:88px;height:24px}
-.crown-step--md{width:176px;height:24px}
-.crown-step--lg{width:264px;height:24px}
 
-/* Logo Alelyche: encima del paso más pequeño */
-.crown-logo-wrap{
-  position:absolute;
-  bottom:100%;
-  left:50%;
-  transform:translateX(-50%);
-  padding-bottom:4px;
-  width:76px;
-  height:76px;
-  border-radius:50%;
-  overflow:hidden;
-  border:2px solid var(--khaki);
-  background:var(--crema);
-  box-shadow:0 4px 20px rgba(0,0,0,.22);
-  z-index:5;
+.hero-gradient-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--crema) 0%, rgba(242,233,226,0.85) 15%, transparent 60%);
+  z-index: 1;
+  pointer-events: none;
 }
-.crown-logo-wrap img{width:100%;height:100%;object-fit:cover}
 
-.hero-panel h1{color:var(--verde);margin-bottom:.75rem}
-.hero-panel h1 em{color:var(--verde);font-style:italic}
-.hero-sub{
-  font-size:1rem;
-  color:var(--verde);
-  opacity:.8;
-  max-width:480px;
-  margin:0 auto 1.5rem;
-  line-height:1.7;
+.hero-fx {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
 }
-.hero-leaf{width:120px;margin:0 auto .9rem;opacity:.45}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+
+.glow-elements {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(195,176,145,0.5) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.hero-overlay-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem 6rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-symbol {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--khaki);
+  box-shadow: 0 8px 32px rgba(195,176,145,0.4);
+  margin-bottom: 2rem;
+  background: var(--crema);
+}
+.hero-symbol img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.hero-text-block h1 {
+  color: var(--verde);
+  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+.hero-text-block h1 em {
+  color: var(--verde);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero-text-block p {
+  font-size: 1.1rem;
+  color: var(--verde);
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Animations */
+@keyframes pulseSoft {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+  50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+}
+.pulse-animation {
+  animation: pulseSoft 5s infinite ease-in-out;
+}
+
+@keyframes pulseSoftLogo {
+  0% { transform: scale(1); box-shadow: 0 8px 32px rgba(195,176,145,0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(195,176,145,0.5); }
+  100% { transform: scale(1); box-shadow: 0 8px 32px rgba(195,176,145,0.2); }
+}
+.pulse-animation-logo {
+  animation: pulseSoftLogo 4s infinite ease-in-out;
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.split-text-fade {
+  opacity: 0;
+  animation: fadeUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+.fade-up-delay {
+  opacity: 0;
+  animation: fadeUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.3s;
+}
+.fade-up-delay-2 {
+  opacity: 0;
+  animation: fadeUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+/* Falling Petals Particles */
+.falling-elements {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+}
+.petal {
+  position: absolute;
+  top: -10%;
+  width: 12px; height: 12px;
+  background: var(--khaki);
+  border-radius: 50% 0 50% 0;
+  opacity: 0.3;
+  animation: fallSway linear infinite;
+}
+.p1 { left: 20%; animation-duration: 8s; animation-delay: 0s; transform: scale(1.2); }
+.p2 { left: 50%; animation-duration: 11s; animation-delay: 3s; transform: scale(0.8); }
+.p3 { left: 80%; animation-duration: 9s; animation-delay: 1.5s; transform: scale(1); }
+.p4 { left: 35%; animation-duration: 10s; animation-delay: 5s; transform: scale(0.9); }
+.p5 { left: 65%; animation-duration: 12s; animation-delay: 7s; transform: scale(1.1); }
+
+@keyframes fallSway {
+  0% { top: -10%; transform: translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.3; }
+  50% { transform: translateX(40px) rotate(180deg); }
+  90% { opacity: 0.3; }
+  100% { top: 110%; transform: translateX(-40px) rotate(360deg); opacity: 0; }
+}
+
+@media(max-width: 768px) {
+  #hero.hero-premium {
+    min-height: 100svh;
+  }
+  .hero-overlay-content {
+    padding-bottom: 3rem;
+  }
+  .hero-text-block h1 {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+}
 
 /* Trust strip — pills movidas del hero a franja entre hero y pain */
 .trust-strip{
@@ -187,16 +279,6 @@ section{padding:5.5rem 0}
   border-radius:20px;
   padding:.28rem .8rem;
   white-space:nowrap;
-}
-
-/* Hero responsive */
-@media(max-width:900px){.hero-panel{width:88%;padding:0 2rem 2.5rem}}
-@media(max-width:768px){.hero-panel{width:90%}}
-@media(max-width:600px){
-  .hero-panel{width:100%;padding:0 1.25rem 2rem;box-shadow:none}
-  .crown-step--lg{width:210px}
-  .crown-step--md{width:135px}
-  .crown-step--sm{width:78px}
 }
 
 /* ===== PAIN ===== */
@@ -357,7 +439,7 @@ section{padding:5.5rem 0}
 
 /* ===== CTA FINAL ===== */
 #cta-final{position:relative;overflow:hidden;text-align:center;padding:8rem 1.5rem}
-.cta-bg{position:absolute;inset:0;background:url('../assets/hero-cg.webp') center/cover no-repeat;z-index:0}
+.cta-bg{position:absolute;inset:0;background:url('../../assets/hero-cg.webp') center/cover no-repeat;z-index:0}
 .cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,64,43,.9) 0%,rgba(1,31,21,.8) 100%);z-index:1}
 .cta-content{position:relative;z-index:2}
 .cta-content h2{color:var(--crema);font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:.75rem}
