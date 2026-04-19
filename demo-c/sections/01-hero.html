@@ -1,40 +1,29 @@
 <!-- ===================================================
-     SECCIÓN: HERO (Premium Dribbble Style)
-     Imagen: assets/hero-cg.webp
+     SECCIÓN: HERO — Panel crema con corona escalonada
+     Imagen de fondo: cg-demos/assets/hero-cg.webp (vía CSS)
      =================================================== -->
-<section id="hero" class="hero-premium">
-  <!-- Layer 1: Ambient Background -->
-  <div class="hero-bg parallax-base"></div>
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient-base"></div>
 
-  <!-- Layer 2: Glow Elements & Particles -->
-  <div class="hero-fx">
-    <div class="glow-elements pulse-animation"></div>
-    <div class="falling-elements" aria-hidden="true">
-      <div class="petal p1"></div>
-      <div class="petal p2"></div>
-      <div class="petal p3"></div>
-      <div class="petal p4"></div>
-      <div class="petal p5"></div>
-    </div>
-  </div>
-
-  <!-- Layer 3: Content Overlay -->
-  <div class="hero-overlay-content">
-    <div class="hero-symbol pulse-animation-logo">
-      <img src="../assets/Logo-Alelyche.jpg" alt="Alelyche Logo">
+  <div class="hero-panel">
+    <!-- Corona escalonada: 3 escalones sm → md → lg, logo en el vértice -->
+    <div class="hero-crown">
+      <div class="crown-step crown-step--sm">
+        <div class="crown-logo-wrap">
+          <img src="../assets/Logo-Alelyche.jpg" alt="Alelyche Ancestral">
+        </div>
+      </div>
+      <div class="crown-step crown-step--md"></div>
+      <div class="crown-step crown-step--lg"></div>
     </div>
 
-    <div class="hero-text-block">
-      <h1 class="split-text-fade">Toma la <em><br>soberanía de tu historia.</em></h1>
-      <p class="fade-up-delay">Te acompaño con amor, compasión y empatía a ver las heridas de tu alma y a sembrar semillas de crecimiento personal en cada sesión.</p>
-    </div>
-
-    <div class="hero-ctas fade-up-delay-2">
+    <h1>Toma la <em>soberanía de tu historia.</em></h1>
+    <p class="hero-sub">Te acompaño con amor, compasión y empatía a ver las heridas de tu alma y a sembrar semillas de crecimiento personal en cada sesión.</p>
+    <img src="../assets/symbol-leaf-divider.svg" class="hero-leaf" alt="" aria-hidden="true">
+    <div class="hero-ctas">
       <a href="https://wa.me/56982372185?text=Hola%20Chely%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20una%20sesi%C3%B3n.%20%C2%BFC%C3%B3mo%20empezamos%3F" class="btn btn-verde" target="_blank" rel="noopener">Agenda tu sesión por WhatsApp</a>
       <a href="#solucion" class="btn btn-outline-verde">Ver servicios</a>
     </div>
   </div>
-
-  <!-- Layer 4: Base Gradient to fade into content -->
-  <div class="hero-gradient-fade"></div>
 </section>
