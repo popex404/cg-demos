@@ -86,11 +86,12 @@ section{padding:5.5rem 0}
   display: flex;
   flex-direction: column;
   padding: 0;
+  background: var(--crema);
 }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-cg.webp') center top/cover no-repeat;
+  background: url('../../assets/hero-cg.webp') center top / contain no-repeat;
   z-index: 0;
 }
 .hero-gradient-base {
