@@ -55,7 +55,7 @@ function initApp() {
       const panel = document.getElementById('tab-' + t);
       if (panel) {
         panel.classList.add('active');
-        if (isMobile()) resetPanelCarousel(panel);
+        resetPanelCarousel(panel);
       }
     });
   });
@@ -70,15 +70,11 @@ function initApp() {
     });
   });
 
-  /* Carouseles (mobile) */
+  /* Carouseles */
   initCarousels();
 }
 
 /* ===== CAROUSEL HELPERS ===== */
-
-function isMobile() {
-  return window.innerWidth <= 768;
-}
 
 function buildDots(nav, count) {
   const dotsEl = nav.querySelector('.carousel-dots');
@@ -125,8 +121,6 @@ function resetPanelCarousel(panel) {
 }
 
 function initCarousels() {
-  if (!isMobile()) return;
-
   /* Testimonios */
   setupCarousel(
     document.querySelector('.testimonios-grid'),
