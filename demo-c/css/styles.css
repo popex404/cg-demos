@@ -68,11 +68,13 @@ section{padding:5.5rem 0}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;max-width:1100px;margin:0 auto}
 .header-logo img{height:40px;width:auto;border-radius:4px}
 .header-nav{display:flex;align-items:center;gap:1.75rem}
-.header-nav a{font-size:.83rem;letter-spacing:.05em;color:var(--crema);opacity:.85;transition:opacity .2s}
+.header-nav a{font-size:.83rem;letter-spacing:.05em;color:var(--verde);opacity:.88;transition:opacity .2s}
 .header-nav a:hover{opacity:1}
+#header.scrolled .header-nav a{color:var(--crema);opacity:.85}
 .header-social{display:flex;align-items:center;gap:.75rem}
-.header-social a{color:var(--crema);opacity:.65;transition:opacity .2s;display:flex;align-items:center}
+.header-social a{color:var(--verde);opacity:.7;transition:opacity .2s;display:flex;align-items:center}
 .header-social a:hover{opacity:1}
+#header.scrolled .header-social a{color:var(--crema);opacity:.65}
 .header-wa-mobile{display:none;background:#25D366;color:#fff;font-size:.78rem;font-weight:600;padding:.5rem 1rem;border-radius:6px}
 @media(max-width:768px){.header-nav,.header-social{display:none}.header-wa-mobile{display:block}}
 
@@ -104,7 +106,7 @@ section{padding:5.5rem 0}
   position: absolute; bottom: 0;
   left: 50%; transform: translateX(-50%);
   width: 72%;
-  background: linear-gradient(to bottom, transparent 0%, rgba(242,233,226,0.82) 20%, var(--crema) 38%);
+  background: var(--crema);
   padding: 0 3.5rem 2.5rem;
   text-align: center;
   z-index: 3;
@@ -143,7 +145,7 @@ section{padding:5.5rem 0}
 .hero-ctas { display:flex; gap:1.25rem; justify-content:center; flex-wrap:wrap; }
 
 @media(max-width: 768px) {
-  .hero-panel { width:94%; padding:0 1.25rem 2rem; background:linear-gradient(to bottom, transparent 0%, rgba(242,233,226,0.88) 15%, var(--crema) 30%); }
+  .hero-panel { width:94%; padding:0 1.25rem 2rem; }
   #hero h1 { font-size: clamp(1.7rem, 6.5vw, 2.4rem); }
   .hero-sub { font-size:.92rem; }
   .hero-crown { margin-top:-28px; }
@@ -227,7 +229,6 @@ section{padding:5.5rem 0}
 .dato-num{font-family:var(--serif);font-size:2.2rem;color:var(--aqua);display:block;margin-bottom:.25rem}
 .dato-label{font-size:.76rem;color:var(--crema);opacity:.6;line-height:1.4}
 @media(max-width:900px){.datos-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.testimonios-grid{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:1rem;padding-bottom:1rem}.testimonio-card{min-width:82vw;flex-shrink:0;scroll-snap-align:center}}
 
 /* ===== SERVICIOS ===== */
 #solucion{background:var(--silver)}
@@ -346,7 +347,7 @@ section{padding:5.5rem 0}
 /* ===== FOOTER ===== */
 footer{background:var(--verde3);border-top:1px solid rgba(127,255,212,.08);padding:2.25rem 1.5rem;text-align:center}
 .footer-inner{max-width:1100px;margin:0 auto}
-.footer-logo{height:34px;margin:0 auto .75rem;border-radius:4px}
+.footer-logo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid var(--khaki);box-shadow:0 4px 20px rgba(0,0,0,.22);margin:0 auto 1.25rem;display:block}
 footer p{font-size:.74rem;color:var(--crema);opacity:.45;margin-bottom:.3rem}
 .footer-links a{font-size:.74rem;color:var(--aqua);opacity:.5}
 .footer-links a:hover{opacity:1}
@@ -356,13 +357,43 @@ footer p{font-size:.74rem;color:var(--crema);opacity:.45;margin-bottom:.3rem}
 .wa-float{position:fixed;bottom:24px;right:24px;z-index:300;background:#25D366;color:#fff;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:transform .2s}
 .wa-float:hover{transform:scale(1.1)}
 
+/* ===== CAROUSEL UI ===== */
+.testimonios-carousel-nav,.servicios-carousel-nav{display:none}
+.carousel-btn{
+  background:var(--verde);color:var(--crema);border:none;
+  width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;flex-shrink:0;
+}
+.carousel-btn:hover{background:var(--verde2)}
+.carousel-dots{display:flex;gap:.35rem;align-items:center}
+.carousel-dot{width:7px;height:7px;border-radius:50%;background:var(--khaki);opacity:.3;transition:opacity .2s;cursor:pointer}
+.carousel-dot.active{opacity:1}
+#prueba .carousel-btn{background:rgba(127,255,212,.18);color:var(--crema)}
+#prueba .carousel-btn:hover{background:rgba(127,255,212,.38)}
+#prueba .carousel-dot{background:var(--crema)}
+
 /* ===== MOBILE GLOBAL ===== */
 @media(max-width:768px){
   section{padding:40px 16px}
-  .trust-strip{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start}
-  .trust-pill{flex-shrink:0}
+  /* Trust strip: grid 2+3 en mobile */
+  .trust-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:.45rem;padding:.85rem 1rem;justify-items:center}
+  .trust-pill{grid-column:span 3;white-space:normal;text-align:center}
+  .trust-pill:nth-child(n+3){grid-column:span 2}
+  /* Leaf image entre secciones */
+  .leaf-wrap{display:none}
+  /* Servicios tabs */
   .servicios-tabs{flex-wrap:wrap;gap:.4rem;overflow-x:unset;-webkit-overflow-scrolling:unset;padding-bottom:0}
   .tab-btn{font-size:.7rem;padding:.45rem .9rem}
-  .servicios-grid{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:1rem;padding-bottom:1rem;grid-template-columns:unset}
-  .servicio-card{min-width:75vw;flex-shrink:0;scroll-snap-align:center}
+  /* Testimonios carousel */
+  .testimonios-grid{display:block !important;overflow:unset !important;flex-wrap:unset}
+  .testimonio-card{display:none;min-width:unset;flex-shrink:unset;scroll-snap-align:unset}
+  .testimonio-card.carousel-active{display:block}
+  /* Servicios carousel */
+  .servicios-grid{display:block !important;overflow:unset !important;flex-wrap:unset;grid-template-columns:unset}
+  .servicio-card{display:none !important;min-width:unset;flex-shrink:unset;scroll-snap-align:unset}
+  .servicio-card.carousel-active{display:block !important}
+  /* Carousel nav visible en mobile */
+  .testimonios-carousel-nav,.servicios-carousel-nav{
+    display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem;
+  }
 }
