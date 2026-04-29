@@ -10,7 +10,6 @@ const SECTIONS = [
   '04-mecanismo',
   '05-prueba',
   '06-solucion',
-  '07-para-quien',
   '08-value-stack',
   '09-urgencia',
   '10-garantia',
@@ -25,7 +24,7 @@ const SECTIONS = [
 
   for (const name of SECTIONS) {
     try {
-      const res = await fetch(`sections/${name}.html`);
+      const res = await fetch(`sections/${name}.html?v=${Date.now()}`);
       if (!res.ok) { console.warn(`Section not found: ${name}`); continue; }
       const html = await res.text();
       root.insertAdjacentHTML('beforeend', html);
