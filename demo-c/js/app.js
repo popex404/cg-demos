@@ -128,6 +128,20 @@ function initCarousels() {
     document.querySelector('.testimonios-carousel-nav')
   );
 
+  /* Pain — Escucho tu historia */
+  setupCarousel(
+    document.querySelector('.pain-grid'),
+    '.pain-item',
+    document.querySelector('.pain-carousel-nav')
+  );
+
+  /* Value stack */
+  setupCarousel(
+    document.querySelector('.value-inner'),
+    '.value-block',
+    document.querySelector('.value-carousel-nav')
+  );
+
   /* Servicios — un carousel por tab panel */
   document.querySelectorAll('.tab-panel').forEach(panel => {
     setupCarousel(

@@ -76,7 +76,7 @@ section{padding:5.5rem 0}
 .header-social a:hover{opacity:1}
 #header.scrolled .header-social a{color:var(--crema);opacity:.65}
 .header-wa-mobile{display:none;background:#25D366;color:#fff;font-size:.78rem;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-@media(max-width:768px){.header-nav,.header-social{display:none}.header-wa-mobile{display:block}}
+@media(max-width:768px){.header-nav,.header-social,.header-wa-mobile{display:none}}
 
 /* ===================================================
    HERO — Panel crema con corona escalonada
@@ -358,7 +358,7 @@ footer p{font-size:.74rem;color:var(--crema);opacity:.45;margin-bottom:.3rem}
 .wa-float:hover{transform:scale(1.1)}
 
 /* ===== CAROUSEL UI ===== */
-.testimonios-carousel-nav,.servicios-carousel-nav{display:none}
+.testimonios-carousel-nav,.servicios-carousel-nav,.pain-carousel-nav,.value-carousel-nav{display:none}
 .carousel-btn{
   background:var(--verde);color:var(--crema);border:none;
   width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;
@@ -392,8 +392,16 @@ footer p{font-size:.74rem;color:var(--crema);opacity:.45;margin-bottom:.3rem}
   .servicios-grid{display:block !important;overflow:unset !important;flex-wrap:unset;grid-template-columns:unset}
   .servicio-card{display:none !important;min-width:unset;flex-shrink:unset;scroll-snap-align:unset}
   .servicio-card.carousel-active{display:block !important}
-  /* Carousel nav visible en mobile */
-  .testimonios-carousel-nav,.servicios-carousel-nav{
+  /* Pain carousel */
+  .pain-grid{display:block !important}
+  .pain-item{display:none}
+  .pain-item.carousel-active{display:block}
+  /* Value stack carousel */
+  .value-inner{display:block !important}
+  .value-block{display:none}
+  .value-block.carousel-active{display:block}
+  /* Carousel navs visibles en mobile */
+  .testimonios-carousel-nav,.servicios-carousel-nav,.pain-carousel-nav,.value-carousel-nav{
     display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.5rem;
   }
 }
