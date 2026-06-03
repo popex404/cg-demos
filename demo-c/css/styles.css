@@ -120,10 +120,11 @@ section{padding:5.5rem 0}
   overflow: hidden;
   background: var(--teal-light);
 }
+/* contain = se mantiene visible el campo turquesa de fondo */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-cg.webp') center top / cover no-repeat;
+  background: url('../../assets/hero-cg.webp') center bottom / contain no-repeat;
   z-index: 0;
 }
 /* Capa turquesa sólida y uniforme (sin degradado) */
@@ -173,7 +174,7 @@ section{padding:5.5rem 0}
 
 /* Trust strip — pills movidas del hero a franja entre hero y pain */
 .trust-strip{
-  background:var(--silver);
+  background:var(--teal-light);
   display:flex;
   flex-wrap:wrap;
   gap:.45rem .65rem;
@@ -252,7 +253,7 @@ section{padding:5.5rem 0}
 @media(max-width:900px){.datos-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ===== SERVICIOS ===== */
-#solucion{background:var(--silver)}
+#solucion{background:#e0d8cb}
 .servicios-intro{text-align:center;margin-bottom:2.75rem}
 .service-icon-top{width:64px;margin:0 auto 1.5rem;opacity:.45}
 .servicios-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.25rem}
