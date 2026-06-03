@@ -120,11 +120,11 @@ section{padding:5.5rem 0}
   overflow: hidden;
   background: var(--teal-light);
 }
-/* Desktop: imagen completa sin zoom forzado (contain = no se pixela) */
+/* Desktop: imagen full-bleed (ya es 1920px, cover no la pixela) */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-desktop.webp?v=6') center / contain no-repeat;
+  background: url('../../assets/hero-desktop.webp?v=6') center / cover no-repeat;
   z-index: 0;
 }
 /* Scrim suave a la izquierda para que el texto verde se lea (deja libre al sujeto) */
