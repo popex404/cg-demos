@@ -120,11 +120,10 @@ section{padding:5.5rem 0}
   overflow: hidden;
   background: var(--teal-light);
 }
-/* contain = imagen completa y más alejada (vs cover que la acercaba/recortaba) */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-cg.webp') center bottom / contain no-repeat;
+  background: url('../../assets/hero-cg.webp') center top / cover no-repeat;
   z-index: 0;
 }
 /* Capa turquesa sólida y uniforme (sin degradado) */
@@ -194,9 +193,12 @@ section{padding:5.5rem 0}
   padding:.28rem .8rem;
   white-space:nowrap;
 }
+/* TEST de color de pills — comparar antes de aplicar a todas */
+.trust-pill--cta{background:var(--khaki);color:var(--verde);border-color:rgba(0,64,43,.2)}
+.trust-pill--serv{background:var(--verde);color:var(--crema);border-color:var(--verde)}
 
 /* ===== PAIN ===== */
-#pain{background:var(--silver)}
+#pain{background:var(--alabaster)}
 #pain .section-header h2{color:var(--verde)}
 #pain .section-header p{color:var(--verde);opacity:.75}
 .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-top:2.5rem}
@@ -355,9 +357,8 @@ section{padding:5.5rem 0}
 .faq-item.open .faq-answer{max-height:260px}
 
 /* ===== CTA FINAL ===== */
-#cta-final{position:relative;overflow:hidden;text-align:center;padding:8rem 1.5rem}
-.cta-bg{position:absolute;inset:0;background:url('../../assets/hero-cg.webp') center/cover no-repeat;z-index:0}
-.cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,64,43,.9) 0%,rgba(1,31,21,.8) 100%);z-index:1}
+#cta-final{position:relative;overflow:hidden;text-align:center;padding:8rem 1.5rem;background:var(--verde)}
+.cta-overlay{position:absolute;inset:0;background:linear-gradient(135deg,var(--verde) 0%,var(--verde3) 100%);z-index:1}
 .cta-content{position:relative;z-index:2}
 .cta-content h2{color:var(--crema);font-size:clamp(1.9rem,4.5vw,2.8rem);margin-bottom:.75rem}
 .cta-content p{font-size:1.05rem;color:var(--crema);opacity:.8;margin-bottom:2.25rem}
