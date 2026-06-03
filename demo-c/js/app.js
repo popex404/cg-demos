@@ -111,10 +111,7 @@ function staggerChildren(containerSel, childSel) {
 }
 
 function initReveal() {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const els = [...document.querySelectorAll(REVEAL_SELECTORS)];
-  if (reduce) return; // CSS deja todo visible; no animamos
-
   els.forEach(el => el.classList.add('reveal'));
   // Stagger en grupos visibles (no carruseles ocultos)
   staggerChildren('.trust-strip', '.trust-pill');
@@ -133,10 +130,7 @@ function initReveal() {
 }
 
 function initCounters() {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nums = document.querySelectorAll('.dato-num');
-  if (reduce) return;
-
   const easeOut = t => t * (2 - t);
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
