@@ -120,17 +120,17 @@ section{padding:5.5rem 0}
   overflow: hidden;
   background: var(--teal-light);
 }
-/* contain = se mantiene visible el campo turquesa de fondo */
+/* contain = se mantiene visible el campo turquesa de fondo (imagen alejada) */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-cg.webp') center bottom / contain no-repeat;
+  background: url('../../assets/hero-cg-v2.webp') center / contain no-repeat;
   z-index: 0;
 }
-/* Capa turquesa sólida y uniforme (sin degradado) */
+/* Capa turquesa suave — la imagen ya trae su propio gradiente turquesa */
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: rgba(217,247,250,.42);
+  background: rgba(217,247,250,.18);
 }
 .hero-content {
   position: relative; z-index: 2;
