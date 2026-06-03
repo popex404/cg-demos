@@ -37,12 +37,20 @@ const SECTIONS = [
 })();
 
 function initApp() {
-  /* Header scroll */
-  const hdr = document.getElementById('header');
-  if (hdr) {
-    window.addEventListener('scroll', () => {
-      hdr.classList.toggle('scrolled', scrollY > 80);
-    }, { passive: true });
+  /* Menú hamburguesa (mobile) */
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    const setMenu = (open) => {
+      burger.classList.toggle('open', open);
+      mobileMenu.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+    };
+    burger.addEventListener('click', () => setMenu(!burger.classList.contains('open')));
+    mobileMenu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => setMenu(false))
+    );
   }
 
   /* Service tabs */

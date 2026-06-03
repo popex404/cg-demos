@@ -62,97 +62,117 @@ section{padding:5.5rem 0}
 .wave{display:block;width:100%;overflow:hidden;line-height:0}
 .wave svg{display:block;width:100%}
 
-/* ===== NAV / HEADER ===== */
-#header{position:fixed;top:0;left:0;width:100%;z-index:200;transition:background .4s,box-shadow .4s;background:transparent}
-#header.scrolled{background:rgba(0,64,43,.97);box-shadow:0 1px 20px rgba(0,0,0,.3)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;max-width:1100px;margin:0 auto}
-.header-logo img{height:40px;width:auto;border-radius:4px}
-.header-nav{display:flex;align-items:center;gap:1.75rem}
-.header-nav a{font-size:.83rem;letter-spacing:.05em;color:var(--verde);opacity:.88;transition:opacity .2s}
+/* ===== NAV / HEADER (siempre sólido) ===== */
+#header{position:fixed;top:0;left:0;width:100%;z-index:200;background:rgba(0,64,43,.97);box-shadow:0 1px 20px rgba(0,0,0,.28)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1.5rem;max-width:1100px;margin:0 auto}
+
+/* Marca (logo + nombre) */
+.header-brand{display:flex;align-items:center;gap:.6rem;color:var(--crema);flex-shrink:0}
+.header-brand img{height:38px;width:38px;border-radius:50%;object-fit:cover;border:1px solid rgba(195,176,145,.5)}
+.header-brand span{font-family:var(--serif);font-size:1rem;letter-spacing:.02em}
+
+.header-nav{display:flex;align-items:center;gap:1.75rem;margin-left:auto}
+.header-nav a{font-size:.83rem;letter-spacing:.05em;color:var(--crema);opacity:.85;transition:opacity .2s}
 .header-nav a:hover{opacity:1}
-#header.scrolled .header-nav a{color:var(--crema);opacity:.85}
-.header-social{display:flex;align-items:center;gap:.75rem}
-.header-social a{color:var(--verde);opacity:.7;transition:opacity .2s;display:flex;align-items:center}
+.header-social{display:flex;align-items:center;gap:.85rem}
+.header-social a{color:var(--crema);opacity:.7;transition:opacity .2s;display:flex;align-items:center}
 .header-social a:hover{opacity:1}
-#header.scrolled .header-social a{color:var(--crema);opacity:.65}
-.header-wa-mobile{display:none;background:#25D366;color:#fff;font-size:.78rem;font-weight:600;padding:.5rem 1rem;border-radius:6px}
-@media(max-width:768px){.header-nav,.header-social,.header-wa-mobile{display:none}}
+
+/* Hamburguesa (solo mobile) */
+.header-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:transparent;border:none;cursor:pointer;padding:8px;margin-left:auto}
+.header-burger span{display:block;height:2px;width:100%;background:var(--crema);border-radius:2px;transition:transform .3s,opacity .2s}
+.header-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.header-burger.open span:nth-child(2){opacity:0}
+.header-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Menú retráctil (solo mobile) */
+.mobile-menu{display:none}
+
+@media(max-width:768px){
+  .header-nav,.header-social{display:none}
+  .header-burger{display:flex}
+  .header-brand span{font-size:.92rem}
+  .mobile-menu{
+    display:flex;flex-direction:column;
+    position:absolute;top:100%;left:0;width:100%;
+    background:rgba(0,64,43,.99);
+    box-shadow:0 14px 32px rgba(0,0,0,.4);
+    padding:0 1.5rem;
+    max-height:0;overflow:hidden;opacity:0;pointer-events:none;
+    transition:max-height .35s ease,opacity .25s ease,padding .35s ease;
+  }
+  .mobile-menu.open{max-height:80vh;opacity:1;pointer-events:auto;padding:.5rem 1.5rem 1.5rem}
+  .mobile-menu a{color:var(--crema);font-size:1rem;padding:.9rem 0;border-bottom:1px solid rgba(217,247,250,.12)}
+  .mobile-menu .mobile-menu-wa{margin-top:1rem;background:#25D366;color:#fff;text-align:center;font-weight:600;border-radius:8px;border:none;padding:.85rem}
+  .mobile-menu-social{display:flex;gap:1.75rem;justify-content:center;padding-top:1.25rem;border:none}
+  .mobile-menu-social a{border:none;padding:0;color:var(--teal-light);opacity:.85}
+}
 
 /* ===================================================
-   HERO — Panel crema con corona escalonada
+   HERO — Imagen full + capa turquesa (estilo invertido)
    =================================================== */
 #hero {
   position: relative;
   height: 100svh;
-  min-height: 640px;
+  min-height: 620px;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   padding: 0;
-  background: var(--crema);
+  overflow: hidden;
 }
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-cg.webp') center top / contain no-repeat;
+  background: url('../../assets/hero-cg.webp') center top / cover no-repeat;
   z-index: 0;
 }
-.hero-gradient-base {
-  position: absolute; bottom: 0; left: 0;
-  width: 100%; height: 45%;
-  background: linear-gradient(to top, rgba(0,10,5,.25) 0%, transparent 100%);
-  z-index: 1;
+/* Capa traslúcida: turquesa abajo (donde va el texto) → imagen visible arriba */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top,
+    rgba(217,247,250,.94) 0%,
+    rgba(217,247,250,.68) 38%,
+    rgba(195,176,145,.28) 68%,
+    rgba(0,64,43,.32) 100%);
 }
-.hero-panel {
-  position: absolute; bottom: 0;
-  left: 50%; transform: translateX(-50%);
-  width: 72%;
-  background: var(--crema);
-  padding: 0 3.5rem 2.5rem;
-  text-align: center;
-  z-index: 3;
-  box-shadow: 0 -8px 40px rgba(0,0,0,.12);
-  overflow: visible;
+.hero-content {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1100px; margin: 0 auto;
+  padding: 0 1.5rem 4.5rem;
+  text-align: left;
+  color: var(--verde);
 }
-/* Corona: 3 plataformas escalonadas sm (arriba) → md → lg (base del panel) */
-.hero-crown { display:flex; flex-direction:column; align-items:center; margin-top:-72px; margin-bottom:1.75rem; }
-.crown-step { background:var(--crema); position:relative; flex-shrink:0; }
-.crown-step--sm { width:88px; height:24px; }
-.crown-step--md { width:176px; height:24px; }
-.crown-step--lg { width:264px; height:24px; }
-.crown-logo-wrap {
-  position:absolute; bottom:100%; left:50%; transform:translateX(-50%); padding-bottom:4px;
-  width:76px; height:76px; border-radius:50%; overflow:hidden;
-  border:2px solid var(--khaki); background:var(--crema);
-  box-shadow:0 4px 20px rgba(0,0,0,.22); z-index:5;
+.hero-label {
+  font-family: var(--sans);
+  font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--verde); opacity: .7;
+  display: block; margin-bottom: 1rem;
 }
-.crown-logo-wrap img { width:100%; height:100%; object-fit:cover; }
 #hero h1 {
   color: var(--verde);
-  font-size: clamp(1.9rem, 4vw, 3.2rem);
-  line-height: 1.1;
-  margin-bottom: .9rem;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.12;
+  margin-bottom: 1rem;
+  max-width: 680px;
 }
 #hero h1 em { font-style:italic; font-weight:300; }
 .hero-sub {
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: var(--verde);
-  opacity: .85;
-  max-width: 500px;
-  margin: 0 auto 1.5rem;
+  opacity: .82;
+  max-width: 520px;
+  margin: 0 0 1.75rem;
   line-height: 1.6;
 }
-.hero-leaf { width:110px; opacity:.45; margin-bottom:1.5rem; display:block; margin-left:auto; margin-right:auto; }
-.hero-ctas { display:flex; gap:1.25rem; justify-content:center; flex-wrap:wrap; }
+.hero-leaf { width:110px; opacity:.4; margin:0 0 1.75rem; display:block; }
+.hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; }
 
 @media(max-width: 768px) {
-  .hero-panel { width:94%; padding:0 1.25rem 2rem; }
-  #hero h1 { font-size: clamp(1.7rem, 6.5vw, 2.4rem); }
-  .hero-sub { font-size:.92rem; }
-  .hero-crown { margin-top:-28px; }
-  .crown-step--sm { width:72px; height:80px; }
-  .crown-step--md { width:144px; }
-  .crown-step--lg { width:216px; }
-  .crown-logo-wrap { width:60px; height:60px; bottom:auto; top:50%; transform:translate(-50%,-50%); }
+  #hero { min-height: 600px; }
+  .hero-content { padding: 0 1.25rem 3rem; }
+  #hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  .hero-sub { font-size:.95rem; }
+  .hero-leaf { margin-bottom:1.25rem; }
 }
 
 /* Trust strip — pills movidas del hero a franja entre hero y pain */
