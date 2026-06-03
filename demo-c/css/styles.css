@@ -124,7 +124,7 @@ section{padding:5.5rem 0}
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-desktop.webp?v=4') center / contain no-repeat;
+  background: url('../../assets/hero-desktop.webp?v=5') center / contain no-repeat;
   z-index: 0;
 }
 /* Scrim suave a la izquierda para que el texto verde se lea (deja libre al sujeto) */
