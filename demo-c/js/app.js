@@ -80,6 +80,82 @@ function initApp() {
 
   /* Carouseles */
   initCarousels();
+
+  /* Aparición al bajar + números animados */
+  initReveal();
+  initCounters();
+}
+
+/* ===== SCROLL REVEAL + CONTADORES ===== */
+
+const REVEAL_SELECTORS = [
+  '.section-header', '.section-header-light',
+  '.mec-inner',
+  '.pain-grid',                       // contenedor (no las cards: en mobile son carrusel)
+  '.testimonios-grid', '.datos-grid',
+  '.servicios-intro', '.servicios-tabs',
+  '.value-inner',
+  '.urgencia-main', '.urgencia-sub', '#urgencia .btn',
+  '.garantia-inner',
+  '.faq-item',
+  '.cta-content',
+  '.trust-pill'
+].join(',');
+
+function staggerChildren(containerSel, childSel) {
+  document.querySelectorAll(containerSel).forEach(c => {
+    c.querySelectorAll(childSel).forEach((el, i) => {
+      el.style.transitionDelay = (i * 80) + 'ms';
+    });
+  });
+}
+
+function initReveal() {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els = [...document.querySelectorAll(REVEAL_SELECTORS)];
+  if (reduce) return; // CSS deja todo visible; no animamos
+
+  els.forEach(el => el.classList.add('reveal'));
+  // Stagger en grupos visibles (no carruseles ocultos)
+  staggerChildren('.trust-strip', '.trust-pill');
+  staggerChildren('.faq-list', '.faq-item');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('revealed');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+
+  els.forEach(el => io.observe(el));
+}
+
+function initCounters() {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nums = document.querySelectorAll('.dato-num');
+  if (reduce) return;
+
+  const easeOut = t => t * (2 - t);
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      io.unobserve(el);
+      const m = el.textContent.trim().match(/^(\D*)(\d+)(\D*)$/);
+      if (!m) return;
+      const prefix = m[1], target = parseInt(m[2], 10), suffix = m[3];
+      const dur = 1200, start = performance.now();
+      (function step(now) {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = prefix + Math.round(easeOut(p) * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      })(performance.now());
+    });
+  }, { threshold: 0.4 });
+
+  nums.forEach(el => io.observe(el));
 }
 
 /* ===== CAROUSEL HELPERS ===== */

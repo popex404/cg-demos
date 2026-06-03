@@ -377,6 +377,13 @@ footer p{font-size:.74rem;color:var(--crema);opacity:.45;margin-bottom:.3rem}
 .wa-float{position:fixed;bottom:24px;right:24px;z-index:300;background:#25D366;color:#fff;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35);transition:transform .2s}
 .wa-float:hover{transform:scale(1.1)}
 
+/* ===== SCROLL REVEAL (aparición al bajar) ===== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .55s cubic-bezier(.22,.61,.36,1),transform .55s cubic-bezier(.22,.61,.36,1)}
+.reveal.revealed{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
 /* ===== CAROUSEL UI ===== */
 .testimonios-carousel-nav,.servicios-carousel-nav,.pain-carousel-nav,.value-carousel-nav{display:none}
 .carousel-btn{
