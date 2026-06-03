@@ -17,8 +17,8 @@
   --khaki-warm:#e8ddd0;
   --khaki-bg:rgba(195,176,145,0.15);
   --verde:#00402b;
-  --verde2:#012e1f;
-  --verde3:#011f15;
+  --verde2:#02543a;
+  --verde3:#013a28;
   --crema:#f2e9e2;
   --blanco:#ffffff;
   --aqua:#7FFFD4; /* solo para textos sobre fondos oscuros */
@@ -103,8 +103,7 @@ section{padding:5.5rem 0}
   }
   .mobile-menu.open{max-height:80vh;opacity:1;pointer-events:auto;padding:.5rem 1.5rem 1.5rem}
   .mobile-menu a{color:var(--crema);font-size:1rem;padding:.9rem 0;border-bottom:1px solid rgba(217,247,250,.12)}
-  .mobile-menu .mobile-menu-wa{margin-top:1rem;background:#25D366;color:#fff;text-align:center;font-weight:600;border-radius:8px;border:none;padding:.85rem}
-  .mobile-menu-social{display:flex;gap:1.75rem;justify-content:center;padding-top:1.25rem;border:none}
+  .mobile-menu-social{display:flex;gap:1.75rem;justify-content:center;padding-top:1.5rem;border:none}
   .mobile-menu-social a{border:none;padding:0;color:var(--teal-light);opacity:.85}
 }
 
@@ -119,21 +118,19 @@ section{padding:5.5rem 0}
   align-items: flex-end;
   padding: 0;
   overflow: hidden;
+  background: var(--teal-light);
 }
+/* contain = imagen completa y más alejada (vs cover que la acercaba/recortaba) */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-cg.webp') center top / cover no-repeat;
+  background: url('../../assets/hero-cg.webp') center bottom / contain no-repeat;
   z-index: 0;
 }
-/* Capa traslúcida: turquesa abajo (donde va el texto) → imagen visible arriba */
+/* Capa turquesa sólida y uniforme (sin degradado) */
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(to top,
-    rgba(217,247,250,.94) 0%,
-    rgba(217,247,250,.68) 38%,
-    rgba(195,176,145,.28) 68%,
-    rgba(0,64,43,.32) 100%);
+  background: rgba(217,247,250,.42);
 }
 .hero-content {
   position: relative; z-index: 2;
@@ -231,23 +228,25 @@ section{padding:5.5rem 0}
 .mec-diffs li::before{content:'◆';position:absolute;left:0;color:var(--khaki);font-size:.5rem;top:.5rem}
 @media(max-width:768px){.mec-inner{grid-template-columns:1fr}.mec-img{display:none}}
 
-/* ===== CREDIBILIDAD / PRUEBA ===== */
-#prueba{background:var(--verde3)}
+/* ===== CREDIBILIDAD / PRUEBA (invertido: fondo turquesa, texto oscuro) ===== */
+#prueba{background:var(--teal-light)}
+#prueba .section-header-light h2{color:var(--verde)}
+#prueba .label-light{color:var(--verde);opacity:.6}
 .testimonios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
 .testimonio-card{
-  background:rgba(127,255,212,.05);
-  border:1px solid rgba(127,255,212,.15);
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(0,64,43,.15);
   border-radius:8px;
   padding:1.75rem;
   transition:transform .2s,border-color .2s;
 }
-.testimonio-card:hover{transform:translateY(-3px);border-color:rgba(195,176,145,.35)}
-.testimonio-texto{font-size:.88rem;line-height:1.72;color:var(--crema);opacity:.85;margin-bottom:1.1rem;font-style:italic}
-.testimonio-nombre{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--khaki)}
+.testimonio-card:hover{transform:translateY(-3px);border-color:rgba(0,64,43,.3)}
+.testimonio-texto{font-size:.88rem;line-height:1.72;color:var(--verde);opacity:.85;margin-bottom:1.1rem;font-style:italic}
+.testimonio-nombre{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--verde);opacity:.55}
 .datos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem;text-align:center}
-.dato-item{padding:1.5rem .5rem;border-radius:6px;background:rgba(127,255,212,.05);border:1px solid rgba(127,255,212,.1)}
-.dato-num{font-family:var(--serif);font-size:2.2rem;color:var(--aqua);display:block;margin-bottom:.25rem}
-.dato-label{font-size:.76rem;color:var(--crema);opacity:.6;line-height:1.4}
+.dato-item{padding:1.5rem .5rem;border-radius:6px;background:rgba(255,255,255,.5);border:1px solid rgba(0,64,43,.12)}
+.dato-num{font-family:var(--serif);font-size:2.2rem;color:var(--verde);display:block;margin-bottom:.25rem}
+.dato-label{font-size:.76rem;color:var(--verde);opacity:.65;line-height:1.4}
 @media(max-width:900px){.datos-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* ===== SERVICIOS ===== */
@@ -388,9 +387,9 @@ footer p{font-size:.74rem;color:var(--crema);opacity:.45;margin-bottom:.3rem}
 .carousel-dots{display:flex;gap:.35rem;align-items:center}
 .carousel-dot{width:7px;height:7px;border-radius:50%;background:var(--khaki);opacity:.3;transition:opacity .2s;cursor:pointer}
 .carousel-dot.active{opacity:1}
-#prueba .carousel-btn{background:rgba(127,255,212,.18);color:var(--crema)}
-#prueba .carousel-btn:hover{background:rgba(127,255,212,.38)}
-#prueba .carousel-dot{background:var(--crema)}
+#prueba .carousel-btn{background:var(--verde);color:var(--crema)}
+#prueba .carousel-btn:hover{background:var(--verde2)}
+#prueba .carousel-dot{background:var(--verde)}
 
 /* ===== MOBILE GLOBAL ===== */
 @media(max-width:768px){
