@@ -120,17 +120,17 @@ section{padding:5.5rem 0}
   overflow: hidden;
   background: var(--teal-light);
 }
-/* contain = se mantiene visible el campo turquesa de fondo (imagen alejada) */
+/* Desktop: imagen full-bleed (sujeto a la derecha, izquierda libre) */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('../../assets/hero-cg-v2.webp') center / contain no-repeat;
+  background: url('../../assets/hero-desktop.webp') center / cover no-repeat;
   z-index: 0;
 }
-/* Capa turquesa suave — la imagen ya trae su propio gradiente turquesa */
+/* Scrim suave a la izquierda para que el texto verde se lea (deja libre al sujeto) */
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: rgba(217,247,250,.18);
+  background: linear-gradient(100deg, rgba(217,247,250,.85) 0%, rgba(217,247,250,.45) 42%, rgba(217,247,250,0) 68%);
 }
 .hero-content {
   position: relative; z-index: 2;
@@ -166,6 +166,9 @@ section{padding:5.5rem 0}
 
 @media(max-width: 768px) {
   #hero { min-height: 600px; }
+  /* Mobile: sigue con la imagen cuadrada turquesa (hasta generar la vertical) */
+  .hero-bg { background: url('../../assets/hero-cg-v2.webp') center / contain no-repeat; }
+  .hero-overlay { background: rgba(217,247,250,.18); }
   .hero-content { padding: 0 1.25rem 3rem; }
   #hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
   .hero-sub { font-size:.95rem; }
