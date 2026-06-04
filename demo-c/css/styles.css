@@ -22,6 +22,7 @@
   --crema:#f2e9e2;
   --blanco:#ffffff;
   --aqua:#7FFFD4; /* solo para textos sobre fondos oscuros */
+  --terracota:#B5532A; /* acento cobre — resaltar palabra clave */
   --serif:Georgia,'Times New Roman',serif;
   --sans:system-ui,-apple-system,'Segoe UI',sans-serif;
 }
@@ -153,6 +154,7 @@ section{padding:5.5rem 0}
   max-width: 780px;
 }
 #hero h1 em { font-style:italic; font-weight:300; }
+#hero h1 .hero-accent { color: var(--terracota); }
 .hero-sub {
   font-size: 1.3rem;
   color: var(--verde);
@@ -195,12 +197,12 @@ section{padding:5.5rem 0}
     position: relative;
     inset: auto;
     width: 100%;
-    height: 54vh;
-    min-height: 340px;
-    /* la imagen se funde hacia el turquesa en su parte baja */
+    height: 48vh;
+    min-height: 360px;
+    /* la imagen se funde hacia el turquesa recién en su parte baja (deja ver la roca) */
     background:
-      linear-gradient(to bottom, rgba(217,247,250,0) 50%, var(--teal-light) 100%),
-      url('../../assets/hero-mobile.webp') center / cover no-repeat;
+      linear-gradient(to bottom, rgba(217,247,250,0) 79%, var(--teal-light) 100%),
+      url('../../assets/hero-mobile.webp') center 64% / cover no-repeat;
     flex-shrink: 0;
   }
   .hero-overlay { display: none; }
