@@ -5,7 +5,6 @@
 
 const SECTIONS = [
   '01-hero',
-  '02-trust-strip',
   '03-pain',
   '04-mecanismo',
   '05-prueba',
