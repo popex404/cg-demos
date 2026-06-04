@@ -195,8 +195,8 @@ section{padding:5.5rem 0}
     position: relative;
     inset: auto;
     width: 100%;
-    height: 54vh;
-    min-height: 340px;
+    aspect-ratio: 864 / 1184;   /* imagen completa (incluye la roca), sin recorte */
+    height: auto;
     background: url('../../assets/hero-mobile.webp') center / cover no-repeat;
     flex-shrink: 0;
   }
