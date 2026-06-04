@@ -181,14 +181,34 @@ section{padding:5.5rem 0}
 .hero-wave svg { display:block; width:100%; height:64px; }
 
 @media(max-width: 768px) {
-  #hero { min-height: 600px; }
-  /* Mobile: sigue con la imagen cuadrada turquesa (hasta generar la vertical) */
-  .hero-bg { background: url('../../assets/hero-cg-v2.webp') center / contain no-repeat; }
-  .hero-overlay { background: rgba(217,247,250,.18); }
-  .hero-content { padding: 1.25rem; }
+  /* Hero apilado: imagen arriba + panel turquesa con el texto abajo (corte recto) */
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    background: var(--teal-light);
+  }
+  .hero-bg {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 48vh;
+    min-height: 320px;
+    background: url('../../assets/hero-mobile.webp') center 55% / cover no-repeat;
+    flex-shrink: 0;
+  }
+  .hero-overlay { display: none; }
+  .hero-wave { display: none; }   /* sin ola, corte recto */
+  .hero-content {
+    position: relative;
+    background: var(--teal-light);
+    padding: 2rem 1.25rem 2.5rem;
+  }
   #hero h1 { font-size: clamp(2rem, 7.5vw, 2.9rem); }
-  .hero-sub { font-size:1.1rem; }
-  .hero-leaf { margin-bottom:1.25rem; }
+  .hero-sub { font-size: 1.1rem; }
 }
 
 /* Trust strip — pills movidas del hero a franja entre hero y pain */
